@@ -20,6 +20,9 @@
 		90E8E73C272758BE00F8E71C /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E73B272758BE00F8E71C /* AuthViewModel.swift */; };
 		90E8E74027275AA600F8E71C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E73F27275AA600F8E71C /* AuthService.swift */; };
 		90E8E74227275ACC00F8E71C /* LiveAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E74127275ACC00F8E71C /* LiveAuthService.swift */; };
+		90E8E74427275CA000F8E71C /* AppModulesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E74327275CA000F8E71C /* AppModulesFactory.swift */; };
+		90E8E74627275D3D00F8E71C /* AuthViewStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E74527275D3D00F8E71C /* AuthViewStateController.swift */; };
+		90E8E7492727671F00F8E71C /* UIViewController+ErrorRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E7482727671F00F8E71C /* UIViewController+ErrorRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		90E8E73B272758BE00F8E71C /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		90E8E73F27275AA600F8E71C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		90E8E74127275ACC00F8E71C /* LiveAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAuthService.swift; sourceTree = "<group>"; };
+		90E8E74327275CA000F8E71C /* AppModulesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModulesFactory.swift; sourceTree = "<group>"; };
+		90E8E74527275D3D00F8E71C /* AuthViewStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewStateController.swift; sourceTree = "<group>"; };
+		90E8E7482727671F00F8E71C /* UIViewController+ErrorRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorRepresentable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				90E8E7332727558800F8E71C /* App */,
+				90E8E7472727670500F8E71C /* Common */,
 				90E8E7322727558000F8E71C /* Domain */,
 				90E8E7342727558E00F8E71C /* Stories */,
 				90E8E735272755C500F8E71C /* Resources */,
@@ -146,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				90E8E6FF272754F400F8E71C /* AppDelegate.swift */,
+				90E8E74327275CA000F8E71C /* AppModulesFactory.swift */,
 				90E8E701272754F400F8E71C /* SceneDelegate.swift */,
 			);
 			path = App;
@@ -173,6 +181,7 @@
 			children = (
 				90E8E7372727572200F8E71C /* AuthViewController.swift */,
 				90E8E73B272758BE00F8E71C /* AuthViewModel.swift */,
+				90E8E74527275D3D00F8E71C /* AuthViewStateController.swift */,
 				90E8E7382727572200F8E71C /* AuthViewController.xib */,
 			);
 			path = Auth;
@@ -192,6 +201,14 @@
 			children = (
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		90E8E7472727670500F8E71C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				90E8E7482727671F00F8E71C /* UIViewController+ErrorRepresentable.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,8 +349,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				90E8E73C272758BE00F8E71C /* AuthViewModel.swift in Sources */,
+				90E8E74427275CA000F8E71C /* AppModulesFactory.swift in Sources */,
+				90E8E74627275D3D00F8E71C /* AuthViewStateController.swift in Sources */,
 				90E8E74227275ACC00F8E71C /* LiveAuthService.swift in Sources */,
 				90E8E700272754F400F8E71C /* AppDelegate.swift in Sources */,
+				90E8E7492727671F00F8E71C /* UIViewController+ErrorRepresentable.swift in Sources */,
 				90E8E74027275AA600F8E71C /* AuthService.swift in Sources */,
 				90E8E7392727572200F8E71C /* AuthViewController.swift in Sources */,
 				90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */,

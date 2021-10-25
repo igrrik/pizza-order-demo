@@ -47,13 +47,7 @@ final class AuthViewController: UIViewController {
 
         viewModel.error
             .emit(onNext: { [weak self] errorString in
-                let controller = UIAlertController(
-                    title: "Error",
-                    message: errorString,
-                    preferredStyle: .alert
-                )
-
-                self?.present(controller, animated: true, completion: nil)
+                self?.present(error: errorString)
             })
             .disposed(by: disposeBag)
     }
@@ -62,20 +56,20 @@ final class AuthViewController: UIViewController {
         usernameTextField.rx.text
             .compactMap { $0 }
             .bind(onNext: { [weak self] text in
-                self?.viewModel.didChangeUsername(text)
+                self?.viewModel.dispatch(event: .didChangeUsername(text))
             })
             .disposed(by: disposeBag)
 
         passwordTextField.rx.text
             .compactMap { $0 }
             .bind(onNext: { [weak self] text in
-                self?.viewModel.didChangePassword(text)
+                self?.viewModel.dispatch(event: .didChangePassword(text))
             })
             .disposed(by: disposeBag)
 
         signInButton.rx.tap
             .bind(onNext: { [weak self] in
-                self?.viewModel.didTapSignInButton()
+                self?.viewModel.dispatch(event: .didTapSignInButton)
             })
             .disposed(by: disposeBag)
     }
