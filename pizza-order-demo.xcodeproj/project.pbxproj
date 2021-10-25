@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		90E8E700272754F400F8E71C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E6FF272754F400F8E71C /* AppDelegate.swift */; };
 		90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E701272754F400F8E71C /* SceneDelegate.swift */; };
-		90E8E704272754F400F8E71C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E703272754F400F8E71C /* ViewController.swift */; };
-		90E8E707272754F400F8E71C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90E8E705272754F400F8E71C /* Main.storyboard */; };
 		90E8E709272754F800F8E71C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E8E708272754F800F8E71C /* Assets.xcassets */; };
 		90E8E70C272754F800F8E71C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90E8E70A272754F800F8E71C /* LaunchScreen.storyboard */; };
 		90E8E717272754F800F8E71C /* pizza_order_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E716272754F800F8E71C /* pizza_order_demoTests.swift */; };
 		90E8E721272754F800F8E71C /* pizza_order_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E720272754F800F8E71C /* pizza_order_demoUITests.swift */; };
 		90E8E723272754F800F8E71C /* pizza_order_demoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E722272754F800F8E71C /* pizza_order_demoUITestsLaunchTests.swift */; };
+		90E8E7312727557300F8E71C /* RxFeedback in Frameworks */ = {isa = PBXBuildFile; productRef = 90E8E7302727557300F8E71C /* RxFeedback */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +38,6 @@
 		90E8E6FC272754F400F8E71C /* pizza-order-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pizza-order-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E8E6FF272754F400F8E71C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90E8E701272754F400F8E71C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		90E8E703272754F400F8E71C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		90E8E706272754F400F8E71C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		90E8E708272754F800F8E71C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90E8E70B272754F800F8E71C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90E8E70D272754F800F8E71C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E8E7312727557300F8E71C /* RxFeedback in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +97,10 @@
 		90E8E6FE272754F400F8E71C /* pizza-order-demo */ = {
 			isa = PBXGroup;
 			children = (
-				90E8E6FF272754F400F8E71C /* AppDelegate.swift */,
-				90E8E701272754F400F8E71C /* SceneDelegate.swift */,
-				90E8E703272754F400F8E71C /* ViewController.swift */,
-				90E8E705272754F400F8E71C /* Main.storyboard */,
-				90E8E708272754F800F8E71C /* Assets.xcassets */,
-				90E8E70A272754F800F8E71C /* LaunchScreen.storyboard */,
+				90E8E7332727558800F8E71C /* App */,
+				90E8E7322727558000F8E71C /* Domain */,
+				90E8E7342727558E00F8E71C /* Stories */,
+				90E8E735272755C500F8E71C /* Resources */,
 				90E8E70D272754F800F8E71C /* Info.plist */,
 			);
 			path = "pizza-order-demo";
@@ -127,6 +123,38 @@
 			path = "pizza-order-demoUITests";
 			sourceTree = "<group>";
 		};
+		90E8E7322727558000F8E71C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		90E8E7332727558800F8E71C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				90E8E6FF272754F400F8E71C /* AppDelegate.swift */,
+				90E8E701272754F400F8E71C /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		90E8E7342727558E00F8E71C /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		90E8E735272755C500F8E71C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				90E8E708272754F800F8E71C /* Assets.xcassets */,
+				90E8E70A272754F800F8E71C /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +171,9 @@
 			dependencies = (
 			);
 			name = "pizza-order-demo";
+			packageProductDependencies = (
+				90E8E7302727557300F8E71C /* RxFeedback */,
+			);
 			productName = "pizza-order-demo";
 			productReference = 90E8E6FC272754F400F8E71C /* pizza-order-demo.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +246,9 @@
 				Base,
 			);
 			mainGroup = 90E8E6F3272754F400F8E71C;
+			packageReferences = (
+				90E8E72F2727557300F8E71C /* XCRemoteSwiftPackageReference "RxFeedback.swift" */,
+			);
 			productRefGroup = 90E8E6FD272754F400F8E71C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +267,6 @@
 			files = (
 				90E8E70C272754F800F8E71C /* LaunchScreen.storyboard in Resources */,
 				90E8E709272754F800F8E71C /* Assets.xcassets in Resources */,
-				90E8E707272754F400F8E71C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +291,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90E8E704272754F400F8E71C /* ViewController.swift in Sources */,
 				90E8E700272754F400F8E71C /* AppDelegate.swift in Sources */,
 				90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */,
 			);
@@ -297,14 +329,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		90E8E705272754F400F8E71C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				90E8E706272754F400F8E71C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		90E8E70A272754F800F8E71C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -444,7 +468,6 @@
 				INFOPLIST_FILE = "pizza-order-demo/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -472,7 +495,6 @@
 				INFOPLIST_FILE = "pizza-order-demo/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -624,6 +646,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90E8E72F2727557300F8E71C /* XCRemoteSwiftPackageReference "RxFeedback.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NoTests/RxFeedback.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90E8E7302727557300F8E71C /* RxFeedback */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90E8E72F2727557300F8E71C /* XCRemoteSwiftPackageReference "RxFeedback.swift" */;
+			productName = RxFeedback;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 90E8E6F4272754F400F8E71C /* Project object */;
 }
