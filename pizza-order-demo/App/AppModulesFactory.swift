@@ -28,6 +28,11 @@ struct AppModulesFactory {
         let viewModel = AuthViewModel(state: state, dispatchUIEvent: uiEventsStream.accept(_:))
         return AuthViewController(viewModel: viewModel)
     }
+
+    func makePizzaListModule() -> UIViewController {
+        let viewModel = PizzaListViewModel()
+        return PizzaListViewController(viewModel: viewModel)
+    }
 }
 
 private extension AuthViewStateController {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90A5F51C272B4D2B00D27738 /* PizzaItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5F51A272B4D2B00D27738 /* PizzaItemCollectionViewCell.swift */; };
+		90A5F51D272B4D2B00D27738 /* PizzaItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A5F51B272B4D2B00D27738 /* PizzaItemCollectionViewCell.xib */; };
+		90A5F522272B58E000D27738 /* PizzaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5F521272B58E000D27738 /* PizzaListViewController.swift */; };
+		90A5F524272B59D400D27738 /* UICollectionView+CellRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5F523272B59D400D27738 /* UICollectionView+CellRegistration.swift */; };
 		90E8E700272754F400F8E71C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E6FF272754F400F8E71C /* AppDelegate.swift */; };
 		90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E701272754F400F8E71C /* SceneDelegate.swift */; };
 		90E8E709272754F800F8E71C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E8E708272754F800F8E71C /* Assets.xcassets */; };
@@ -43,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90A5F51A272B4D2B00D27738 /* PizzaItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		90A5F51B272B4D2B00D27738 /* PizzaItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		90A5F521272B58E000D27738 /* PizzaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaListViewController.swift; sourceTree = "<group>"; };
+		90A5F523272B59D400D27738 /* UICollectionView+CellRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CellRegistration.swift"; sourceTree = "<group>"; };
 		90E8E6FC272754F400F8E71C /* pizza-order-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pizza-order-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E8E6FF272754F400F8E71C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90E8E701272754F400F8E71C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +98,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90A5F519272B4CB100D27738 /* PizzaList */ = {
+			isa = PBXGroup;
+			children = (
+				90A5F51E272B589B00D27738 /* Cell */,
+				90A5F521272B58E000D27738 /* PizzaListViewController.swift */,
+			);
+			path = PizzaList;
+			sourceTree = "<group>";
+		};
+		90A5F51E272B589B00D27738 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				90A5F51A272B4D2B00D27738 /* PizzaItemCollectionViewCell.swift */,
+				90A5F51B272B4D2B00D27738 /* PizzaItemCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		90E8E6F3272754F400F8E71C = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				90E8E7362727571200F8E71C /* Auth */,
+				90A5F519272B4CB100D27738 /* PizzaList */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -207,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				90E8E7482727671F00F8E71C /* UIViewController+ErrorRepresentable.swift */,
+				90A5F523272B59D400D27738 /* UICollectionView+CellRegistration.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -321,6 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A5F51D272B4D2B00D27738 /* PizzaItemCollectionViewCell.xib in Resources */,
 				90E8E70C272754F800F8E71C /* LaunchScreen.storyboard in Resources */,
 				90E8E73A2727572200F8E71C /* AuthViewController.xib in Resources */,
 				90E8E709272754F800F8E71C /* Assets.xcassets in Resources */,
@@ -351,9 +380,12 @@
 				90E8E73C272758BE00F8E71C /* AuthViewModel.swift in Sources */,
 				90E8E74427275CA000F8E71C /* AppModulesFactory.swift in Sources */,
 				90E8E74627275D3D00F8E71C /* AuthViewStateController.swift in Sources */,
+				90A5F522272B58E000D27738 /* PizzaListViewController.swift in Sources */,
 				90E8E74227275ACC00F8E71C /* LiveAuthService.swift in Sources */,
+				90A5F524272B59D400D27738 /* UICollectionView+CellRegistration.swift in Sources */,
 				90E8E700272754F400F8E71C /* AppDelegate.swift in Sources */,
 				90E8E7492727671F00F8E71C /* UIViewController+ErrorRepresentable.swift in Sources */,
+				90A5F51C272B4D2B00D27738 /* PizzaItemCollectionViewCell.swift in Sources */,
 				90E8E74027275AA600F8E71C /* AuthService.swift in Sources */,
 				90E8E7392727572200F8E71C /* AuthViewController.swift in Sources */,
 				90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */,
