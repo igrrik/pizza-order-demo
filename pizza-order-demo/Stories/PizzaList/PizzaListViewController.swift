@@ -9,27 +9,12 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class PizzaListViewModel {
-    let dataSource: Driver<[PizzaItemCollectionViewModel]>
-
-    init() {
-        let items = [
-            UIImage(named: "margarita"),
-            UIImage(named: "barbeque"),
-            UIImage(named: "four_seasons"),
-            UIImage(named: "quattro_formagge"),
-        ]
-        .compactMap { $0 }
-        .map(PizzaItemCollectionViewModel.init(pizzaImage:))
-
-        self.dataSource = .just(items)
-    }
-}
-
 final class PizzaListViewController: UIViewController {
     private let collectionViewInsets = UIEdgeInsets(top: 20.0, left: 10.0, bottom: 20.0, right: 10.0)
     private lazy var flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: flowLayout)
+    private lazy var proceedToPaymentButton = UIButton(configuration: .filled())
+    private var proceedToPaymentButtonBottomConstraint: NSLayoutConstraint?
     private let viewModel: PizzaListViewModel
     private var dataSource = [PizzaItemCollectionViewModel]()
     private let diposeBag = DisposeBag()
@@ -53,6 +38,8 @@ final class PizzaListViewController: UIViewController {
                 self?.collectionView.reloadData()
             })
             .disposed(by: diposeBag)
+
+        
     }
 
     func configureUI() {
@@ -75,6 +62,16 @@ final class PizzaListViewController: UIViewController {
         flowLayout.sectionInset = collectionViewInsets
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+
+    func configureProceedToPaymentButton() {
+        view.addSubview(proceedToPaymentButton)
+        proceedToPaymentButton.translatesAutoresizingMaskIntoConstraints = false
+        proceedToPaymentButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        proceedToPaymentButtonBottomConstraint = proceedToPaymentButton
+            .bottomAnchor
+            .constraint(equalTo: view.bottomAnchor, constant: -32)
+            .isActive = true
     }
 }
 

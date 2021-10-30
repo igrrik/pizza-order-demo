@@ -11,6 +11,8 @@
 		90A5F51D272B4D2B00D27738 /* PizzaItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A5F51B272B4D2B00D27738 /* PizzaItemCollectionViewCell.xib */; };
 		90A5F522272B58E000D27738 /* PizzaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5F521272B58E000D27738 /* PizzaListViewController.swift */; };
 		90A5F524272B59D400D27738 /* UICollectionView+CellRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5F523272B59D400D27738 /* UICollectionView+CellRegistration.swift */; };
+		90A5F526272CAD5B00D27738 /* PizzaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5F525272CAD5B00D27738 /* PizzaListViewModel.swift */; };
+		90A5F528272CB7E500D27738 /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5F527272CB7E500D27738 /* Pizza.swift */; };
 		90E8E700272754F400F8E71C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E6FF272754F400F8E71C /* AppDelegate.swift */; };
 		90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E701272754F400F8E71C /* SceneDelegate.swift */; };
 		90E8E709272754F800F8E71C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E8E708272754F800F8E71C /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		90A5F51B272B4D2B00D27738 /* PizzaItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		90A5F521272B58E000D27738 /* PizzaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaListViewController.swift; sourceTree = "<group>"; };
 		90A5F523272B59D400D27738 /* UICollectionView+CellRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CellRegistration.swift"; sourceTree = "<group>"; };
+		90A5F525272CAD5B00D27738 /* PizzaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaListViewModel.swift; sourceTree = "<group>"; };
+		90A5F527272CB7E500D27738 /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
 		90E8E6FC272754F400F8E71C /* pizza-order-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pizza-order-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E8E6FF272754F400F8E71C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90E8E701272754F400F8E71C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			children = (
 				90A5F51E272B589B00D27738 /* Cell */,
 				90A5F521272B58E000D27738 /* PizzaListViewController.swift */,
+				90A5F525272CAD5B00D27738 /* PizzaListViewModel.swift */,
 			);
 			path = PizzaList;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 		90E8E73E27275A9D00F8E71C /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				90A5F527272CB7E500D27738 /* Pizza.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A5F528272CB7E500D27738 /* Pizza.swift in Sources */,
 				90E8E73C272758BE00F8E71C /* AuthViewModel.swift in Sources */,
 				90E8E74427275CA000F8E71C /* AppModulesFactory.swift in Sources */,
 				90E8E74627275D3D00F8E71C /* AuthViewStateController.swift in Sources */,
@@ -388,6 +395,7 @@
 				90A5F51C272B4D2B00D27738 /* PizzaItemCollectionViewCell.swift in Sources */,
 				90E8E74027275AA600F8E71C /* AuthService.swift in Sources */,
 				90E8E7392727572200F8E71C /* AuthViewController.swift in Sources */,
+				90A5F526272CAD5B00D27738 /* PizzaListViewModel.swift in Sources */,
 				90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
