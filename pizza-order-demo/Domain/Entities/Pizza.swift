@@ -14,6 +14,8 @@ struct Pizza: Hashable {
 }
 
 extension Pizza {
+    static var allPizzas: [Pizza] = [.margarita, .bbq, .fourSeasons, .quattroFormagge]
+
     static let margarita = Pizza(name: "Margarita", price: 350, image: UIImage(named: "margarita")!)
     static let bbq = Pizza(name: "BBQ", price: 699, image: UIImage(named: "barbeque")!)
     static let fourSeasons = Pizza(name: "Four seasons", price: 545, image: UIImage(named: "four_seasons")!)

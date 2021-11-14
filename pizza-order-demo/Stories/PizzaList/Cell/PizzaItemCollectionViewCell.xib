@@ -47,18 +47,20 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5C-wp-zTy">
-                                        <rect key="frame" x="102" y="16.5" width="96.5" height="31"/>
+                                        <rect key="frame" x="96" y="16.5" width="108" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Add to cart"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="10 $"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="128-NR-Yv2"/>
-                                    <constraint firstItem="T5C-wp-zTy" firstAttribute="centerX" secondItem="Vkl-XM-que" secondAttribute="centerX" id="DNp-9b-Thf"/>
-                                    <constraint firstItem="aeU-iy-PGo" firstAttribute="centerY" secondItem="T5C-wp-zTy" secondAttribute="centerY" id="JOf-aB-Khe"/>
-                                    <constraint firstItem="T5C-wp-zTy" firstAttribute="centerY" secondItem="Vkl-XM-que" secondAttribute="centerY" id="XOZ-sM-iyl"/>
-                                    <constraint firstItem="aeU-iy-PGo" firstAttribute="centerX" secondItem="T5C-wp-zTy" secondAttribute="centerX" id="qMx-fi-O7f"/>
+                                    <constraint firstItem="aeU-iy-PGo" firstAttribute="centerX" secondItem="Vkl-XM-que" secondAttribute="centerX" id="29j-3C-g9Y"/>
+                                    <constraint firstItem="T5C-wp-zTy" firstAttribute="centerX" secondItem="aeU-iy-PGo" secondAttribute="centerX" id="bZn-Vj-m8c"/>
+                                    <constraint firstItem="aeU-iy-PGo" firstAttribute="centerY" secondItem="Vkl-XM-que" secondAttribute="centerY" id="bu3-aF-qIn"/>
+                                    <constraint firstItem="T5C-wp-zTy" firstAttribute="width" secondItem="aeU-iy-PGo" secondAttribute="width" id="dgL-TU-xfs"/>
+                                    <constraint firstItem="T5C-wp-zTy" firstAttribute="centerY" secondItem="aeU-iy-PGo" secondAttribute="centerY" id="jbt-2u-vUl"/>
+                                    <constraint firstItem="T5C-wp-zTy" firstAttribute="height" secondItem="aeU-iy-PGo" secondAttribute="height" id="kiy-v8-Lhj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -85,6 +87,7 @@
             <size key="customSize" width="316" height="341"/>
             <connections>
                 <outlet property="addToCartButton" destination="T5C-wp-zTy" id="NfI-f1-lYD"/>
+                <outlet property="countActionsStackView" destination="aeU-iy-PGo" id="KG1-dA-gXL"/>
                 <outlet property="countLabel" destination="Iot-0m-ths" id="zDl-l9-Bwf"/>
                 <outlet property="decrementButton" destination="CwY-pF-vkN" id="CFU-Oh-hd3"/>
                 <outlet property="incrementButton" destination="jrp-Dy-pXV" id="7xY-fV-YgB"/>

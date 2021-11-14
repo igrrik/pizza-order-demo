@@ -39,11 +39,11 @@ final class PizzaListViewController: UIViewController {
             })
             .disposed(by: diposeBag)
 
-        
+        viewModel.loadPizzas()
     }
 
     func configureUI() {
-        title = "Photos"
+        title = "Pizzas"
         view.backgroundColor = .white
         configureCollectionView()
     }
@@ -71,7 +71,6 @@ final class PizzaListViewController: UIViewController {
         proceedToPaymentButtonBottomConstraint = proceedToPaymentButton
             .bottomAnchor
             .constraint(equalTo: view.bottomAnchor, constant: -32)
-            .isActive = true
     }
 }
 

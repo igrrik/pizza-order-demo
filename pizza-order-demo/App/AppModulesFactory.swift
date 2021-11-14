@@ -12,9 +12,17 @@ import RxRelay
 struct AppModulesFactory {
     let authService: AuthService
     let scheduler: SchedulerType
+    let cartStore: CartStore
+    let pizzaProvidingService: PizzaProvidingService
 
     static func liveFactory() -> Self {
-        AppModulesFactory(authService: LiveAuthService(), scheduler: MainScheduler.instance)
+        let scheduler = MainScheduler.instance
+        return AppModulesFactory(
+            authService: LiveAuthService(),
+            scheduler: scheduler,
+            cartStore: CartStore(scheduler: scheduler),
+            pizzaProvidingService: LivePizzaProvidingService()
+        )
     }
 
     func makeAuthModule() -> UIViewController {
@@ -29,8 +37,18 @@ struct AppModulesFactory {
         return AuthViewController(viewModel: viewModel)
     }
 
-    func makePizzaListModule() -> UIViewController {
-        let viewModel = PizzaListViewModel()
+    func makePizzaListModule(dismissHandler: (() -> Void)? = nil) -> UIViewController {
+        let stateDriver = cartStore.state
+            .asDriver(onErrorRecover: { error in
+                assertionFailure("Failed to convert cart store to Driver due to error: \(error)")
+                return .just(.init())
+            })
+        let viewModel = PizzaListViewModel(
+            cartState: stateDriver,
+            cartEventDispatcher: cartStore.dispatch(event:),
+            pizzaProvidingService: pizzaProvidingService,
+            dismissHandler: dismissHandler
+        )
         return PizzaListViewController(viewModel: viewModel)
     }
 }
