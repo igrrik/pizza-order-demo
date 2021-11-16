@@ -40,11 +40,15 @@ struct AppModulesFactory {
     }
 
     func makePizzaListModule() -> UIViewController {
-        makeListModule(productService: pizzaProvidingService)
+        let vc = makeListModule(productService: pizzaProvidingService)
+        vc.title = "Pizza"
+        return vc
     }
 
     func makeDrinksListModule() -> UIViewController {
-        makeListModule(productService: drinksProvidingService)
+        let vc = makeListModule(productService: drinksProvidingService)
+        vc.title = "Drink"
+        return vc
     }
 
     private func makeListModule(productService: ProductProvidingService) -> UIViewController {

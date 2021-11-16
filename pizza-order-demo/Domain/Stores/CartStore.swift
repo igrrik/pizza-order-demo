@@ -33,7 +33,6 @@ final class CartStore {
             scheduler: scheduler,
             feedback: [{ _ in eventsStream.asObservable() }]
         )
-        .distinctUntilChanged()
         .asInfallible(onErrorRecover: { error in
             fatalError(error.localizedDescription)
         })

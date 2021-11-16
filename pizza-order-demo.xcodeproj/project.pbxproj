@@ -35,6 +35,7 @@
 		90EB043627432A18003E73DE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB043527432A18003E73DE /* Product.swift */; };
 		90EB043827432B09003E73DE /* DrinksProvidingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB043727432B09003E73DE /* DrinksProvidingService.swift */; };
 		90EB043E274332E8003E73DE /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB043D274332E8003E73DE /* CartItem.swift */; };
+		90EB044027433877003E73DE /* AppFlowControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB043F27433877003E73DE /* AppFlowControllerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		90EB043527432A18003E73DE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		90EB043727432B09003E73DE /* DrinksProvidingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksProvidingService.swift; sourceTree = "<group>"; };
 		90EB043D274332E8003E73DE /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		90EB043F27433877003E73DE /* AppFlowControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowControllerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 			children = (
 				90E8E6FF272754F400F8E71C /* AppDelegate.swift */,
 				90E8E74327275CA000F8E71C /* AppModulesFactory.swift */,
+				90EB043F27433877003E73DE /* AppFlowControllerViewController.swift */,
 				90E8E701272754F400F8E71C /* SceneDelegate.swift */,
 			);
 			path = App;
@@ -430,6 +433,7 @@
 				9054A8D72741BB34004818A3 /* PizzaProvidingService.swift in Sources */,
 				90E8E74427275CA000F8E71C /* AppModulesFactory.swift in Sources */,
 				90E8E74627275D3D00F8E71C /* AuthViewStateController.swift in Sources */,
+				90EB044027433877003E73DE /* AppFlowControllerViewController.swift in Sources */,
 				90A5F522272B58E000D27738 /* ProductListViewController.swift in Sources */,
 				90E8E74227275ACC00F8E71C /* LiveAuthService.swift in Sources */,
 				90A5F524272B59D400D27738 /* UICollectionView+CellRegistration.swift in Sources */,

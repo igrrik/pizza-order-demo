@@ -86,12 +86,12 @@
             </constraints>
             <size key="customSize" width="316" height="341"/>
             <connections>
-                <outlet property="addToCartButton" destination="T5C-wp-zTy" id="NfI-f1-lYD"/>
-                <outlet property="countActionsStackView" destination="aeU-iy-PGo" id="KG1-dA-gXL"/>
-                <outlet property="countLabel" destination="Iot-0m-ths" id="zDl-l9-Bwf"/>
-                <outlet property="decrementButton" destination="CwY-pF-vkN" id="CFU-Oh-hd3"/>
-                <outlet property="incrementButton" destination="jrp-Dy-pXV" id="7xY-fV-YgB"/>
-                <outlet property="pizzaImageView" destination="hTU-NN-rzq" id="2B2-I1-Zyv"/>
+                <outlet property="addToCartButton" destination="T5C-wp-zTy" id="7fd-Eg-w3B"/>
+                <outlet property="countActionsStackView" destination="aeU-iy-PGo" id="gXQ-9O-GMb"/>
+                <outlet property="countLabel" destination="Iot-0m-ths" id="hVq-6Y-kbP"/>
+                <outlet property="decrementButton" destination="CwY-pF-vkN" id="TT6-Jk-rUs"/>
+                <outlet property="incrementButton" destination="jrp-Dy-pXV" id="AzG-Jd-wBl"/>
+                <outlet property="productImageView" destination="hTU-NN-rzq" id="X8u-Dr-NaI"/>
             </connections>
             <point key="canvasLocation" x="166.66666666666669" y="207.58928571428569"/>
         </collectionViewCell>

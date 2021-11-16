@@ -53,8 +53,18 @@ final class ProductListViewModel {
     }
 
     private func mapProductToViewModel(_ product: Product) -> ProductItemCollectionViewModel {
+        let data = cartState
+            .map { state -> CartItem in
+                let item = state.items[product] ?? CartItem(product: product, count: 0)
+                return item
+            }
+            .asDriver(onErrorRecover: { error in
+                assertionFailure("Failed to convert product to viewModel due to error: \(error)")
+                return .just(.init(product: product, count: 0))
+            })
+
         return ProductItemCollectionViewModel(
-            data: cartState.compactMap { $0.items[product] },
+            data: data,
             eventHandler: { [weak self] event in
                 print("???? event in model \(event)")
                 switch event {
