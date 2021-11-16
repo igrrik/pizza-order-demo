@@ -11,11 +11,6 @@ import RxFeedback
 
 final class ProductItemCollectionViewModel {
 
-    struct Data: Equatable {
-        let product: Product
-        let count: Int
-    }
-
     enum Event: Equatable {
         case increment
         case decrement
@@ -28,7 +23,7 @@ final class ProductItemCollectionViewModel {
 
     private let eventHandler: (Event) -> Void
 
-    init(data: Driver<Data>, eventHandler: @escaping (Event) -> Void) {
+    init(data: Driver<CartItem>, eventHandler: @escaping (Event) -> Void) {
         self.eventHandler = eventHandler
         self.price = data.map { "\($0.product.price) $" }
         self.productImage = data.map { $0.product.image }

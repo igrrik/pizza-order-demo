@@ -13,8 +13,6 @@ final class ProductListViewController: UIViewController {
     private let collectionViewInsets = UIEdgeInsets(top: 20.0, left: 10.0, bottom: 20.0, right: 10.0)
     private lazy var flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: flowLayout)
-    private lazy var proceedToPaymentButton = UIButton(configuration: .filled())
-    private var proceedToPaymentButtonBottomConstraint: NSLayoutConstraint?
     private let viewModel: ProductListViewModel
     private var dataSource = [ProductItemCollectionViewModel]()
     private let diposeBag = DisposeBag()
@@ -62,15 +60,6 @@ final class ProductListViewController: UIViewController {
         flowLayout.sectionInset = collectionViewInsets
         collectionView.dataSource = self
         collectionView.delegate = self
-    }
-
-    func configureProceedToPaymentButton() {
-        view.addSubview(proceedToPaymentButton)
-        proceedToPaymentButton.translatesAutoresizingMaskIntoConstraints = false
-        proceedToPaymentButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        proceedToPaymentButtonBottomConstraint = proceedToPaymentButton
-            .bottomAnchor
-            .constraint(equalTo: view.bottomAnchor, constant: -32)
     }
 }
 

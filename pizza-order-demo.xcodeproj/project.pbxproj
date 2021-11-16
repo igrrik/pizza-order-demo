@@ -34,6 +34,7 @@
 		90E8E7492727671F00F8E71C /* UIViewController+ErrorRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E7482727671F00F8E71C /* UIViewController+ErrorRepresentable.swift */; };
 		90EB043627432A18003E73DE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB043527432A18003E73DE /* Product.swift */; };
 		90EB043827432B09003E73DE /* DrinksProvidingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB043727432B09003E73DE /* DrinksProvidingService.swift */; };
+		90EB043E274332E8003E73DE /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB043D274332E8003E73DE /* CartItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		90E8E7482727671F00F8E71C /* UIViewController+ErrorRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorRepresentable.swift"; sourceTree = "<group>"; };
 		90EB043527432A18003E73DE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		90EB043727432B09003E73DE /* DrinksProvidingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksProvidingService.swift; sourceTree = "<group>"; };
+		90EB043D274332E8003E73DE /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				90EB043527432A18003E73DE /* Product.swift */,
+				90EB043D274332E8003E73DE /* CartItem.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				90E8E7392727572200F8E71C /* AuthViewController.swift in Sources */,
 				90A5F526272CAD5B00D27738 /* ProductListViewModel.swift in Sources */,
 				90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */,
+				90EB043E274332E8003E73DE /* CartItem.swift in Sources */,
 				9054A8DA2741C34E004818A3 /* CartStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,8 +12,8 @@ import RxCocoa
 final class CartStore {
 
     struct State: Equatable {
-        var price: Int { products.map { $0.key.price * $0.value }.reduce(0, +) }
-        var products: [Product: Int] = [:]
+        var price: Int { items.values.map(\.price).reduce(0, +) }
+        var items: [Product: CartItem] = [:]
     }
 
     enum Event {
@@ -49,19 +49,18 @@ final class CartStore {
         var state = state
         switch event {
         case .add(let product):
-            let productCount = state.products[product] ?? 0
-            state.products[product] = productCount + 1
+            var cartItem = state.items[product] ?? CartItem(product: product, count: 0)
+            cartItem.count += 1
+            state.items[product] = cartItem
         case .remove(let product):
-            guard var productCount = state.products[product] else {
+            guard var cartItem = state.items.removeValue(forKey: product) else {
                 assertionFailure("You can't remove product which count is zero")
                 break
             }
-            productCount -= 1
+            cartItem.count -= 1
 
-            if productCount > 0 {
-                state.products[product] = productCount
-            } else {
-                state.products.removeValue(forKey: product)
+            if cartItem.count > 0 {
+                state.items[product] = cartItem
             }
         }
         return state

@@ -11,8 +11,6 @@ import RxCocoa
 
 final class ProductListViewModel {
     let dataSource: Driver<[ProductItemCollectionViewModel]>
-    let totalPriceText: Driver<String> // TODO: bind
-    let isProceedToCardButtonVisible: Driver<Bool> // TODO: bind
     let isLoadingIndicatorVisible: Driver<Bool> // TODO: bind
     let error: Signal<Error> // TODO: bind
 
@@ -35,10 +33,6 @@ final class ProductListViewModel {
         self.dataSource = dataSourceRelay.asDriver()
         self.cartEventDispatcher = cartEventDispatcher
         self.productProvidingService = productProvidingService
-
-        let price = cartState.map { $0.price }
-        self.totalPriceText = price.map { "\($0) $" }.asDriver(onErrorJustReturn: "ERROR")
-        self.isProceedToCardButtonVisible = price.map { $0 > 0 }.asDriver(onErrorJustReturn: false)
     }
 
     func loadProducts() {
@@ -59,18 +53,8 @@ final class ProductListViewModel {
     }
 
     private func mapProductToViewModel(_ product: Product) -> ProductItemCollectionViewModel {
-        let data = cartState
-            .map { state -> ProductItemCollectionViewModel.Data in
-                let productCount = state.products[product] ?? 0
-                return .init(product: product, count: productCount)
-            }
-            .asDriver(onErrorRecover: { error in
-                assertionFailure("Failed to convert product to viewModel due to error: \(error)")
-                return .just(.init(product: product, count: 0))
-            })
-
         return ProductItemCollectionViewModel(
-            data: data,
+            data: cartState.compactMap { $0.items[product] },
             eventHandler: { [weak self] event in
                 print("???? event in model \(event)")
                 switch event {
