@@ -1,5 +1,5 @@
 //
-//  PizzaItemCollectionViewModel.swift
+//  ProductItemCollectionViewModel.swift
 //  pizza-order-demo
 //
 //  Created by Igor Kokoev on 14.11.2021.
@@ -9,10 +9,10 @@ import UIKit
 import RxCocoa
 import RxFeedback
 
-final class PizzaItemCollectionViewModel {
+final class ProductItemCollectionViewModel {
 
     struct Data: Equatable {
-        let pizza: Pizza
+        let product: Product
         let count: Int
     }
 
@@ -22,7 +22,7 @@ final class PizzaItemCollectionViewModel {
     }
 
     let price: Driver<String>
-    let pizzaImage: Driver<UIImage>
+    let productImage: Driver<UIImage>
     let count: Driver<String>
     let isAddToCartButtonVisible: Driver<Bool>
 
@@ -30,8 +30,8 @@ final class PizzaItemCollectionViewModel {
 
     init(data: Driver<Data>, eventHandler: @escaping (Event) -> Void) {
         self.eventHandler = eventHandler
-        self.price = data.map { "\($0.pizza.price) $" }
-        self.pizzaImage = data.map { $0.pizza.image }
+        self.price = data.map { "\($0.product.price) $" }
+        self.productImage = data.map { $0.product.image }
         self.count = data.map { "\($0.count)" }
         self.isAddToCartButtonVisible = data.map { $0.count == 0 }
     }

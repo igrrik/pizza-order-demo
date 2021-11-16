@@ -1,5 +1,5 @@
 //
-//  PizzaListViewModel.swift
+//  ProductListViewModel.swift
 //  pizza-order-demo
 //
 //  Created by Igor Kokoev on 30.10.2021.
@@ -9,48 +9,44 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class PizzaListViewModel {
-    let dataSource: Driver<[PizzaItemCollectionViewModel]>
+final class ProductListViewModel {
+    let dataSource: Driver<[ProductItemCollectionViewModel]>
     let totalPriceText: Driver<String> // TODO: bind
     let isProceedToCardButtonVisible: Driver<Bool> // TODO: bind
     let isLoadingIndicatorVisible: Driver<Bool> // TODO: bind
     let error: Signal<Error> // TODO: bind
 
-    let dismissHandler: (() -> Void)?
-
     private let cartState: Driver<CartStore.State>
     private let errorRelay = PublishRelay<Error>()
     private let isLoadingIndicatorVisibleRelay = BehaviorRelay<Bool>(value: false)
-    private let dataSourceRelay = BehaviorRelay<[PizzaItemCollectionViewModel]>(value: [])
+    private let dataSourceRelay = BehaviorRelay<[ProductItemCollectionViewModel]>(value: [])
     private let cartEventDispatcher: (CartStore.Event) -> Void
-    private let pizzaProvidingService: PizzaProvidingService
+    private let productProvidingService: ProductProvidingService
     private let disposeBag = DisposeBag()
 
     init(
         cartState: Driver<CartStore.State>,
         cartEventDispatcher: @escaping (CartStore.Event) -> Void,
-        pizzaProvidingService: PizzaProvidingService,
-        dismissHandler: (() -> Void)?
+        productProvidingService: ProductProvidingService
     ) {
         self.cartState = cartState
         self.error = errorRelay.asSignal()
         self.isLoadingIndicatorVisible = isLoadingIndicatorVisibleRelay.asDriver()
         self.dataSource = dataSourceRelay.asDriver()
-        self.dismissHandler = dismissHandler
         self.cartEventDispatcher = cartEventDispatcher
-        self.pizzaProvidingService = pizzaProvidingService
+        self.productProvidingService = productProvidingService
 
         let price = cartState.map { $0.price }
         self.totalPriceText = price.map { "\($0) $" }.asDriver(onErrorJustReturn: "ERROR")
         self.isProceedToCardButtonVisible = price.map { $0 > 0 }.asDriver(onErrorJustReturn: false)
     }
 
-    func loadPizzas() {
+    func loadProducts() {
         isLoadingIndicatorVisibleRelay.accept(true)
-        pizzaProvidingService
-            .obtainPizzas()
-            .map { [unowned self] pizzas -> [PizzaItemCollectionViewModel] in
-                pizzas.map { self.mapPizzaToViewModel($0) }
+        productProvidingService
+            .obtainProducts()
+            .map { [unowned self] products -> [ProductItemCollectionViewModel] in
+                products.map { self.mapProductToViewModel($0) }
             }
             .subscribe(onSuccess: { [weak self] viewModels in
                 self?.dataSourceRelay.accept(viewModels)
@@ -62,26 +58,26 @@ final class PizzaListViewModel {
             .disposed(by: disposeBag)
     }
 
-    private func mapPizzaToViewModel(_ pizza: Pizza) -> PizzaItemCollectionViewModel {
+    private func mapProductToViewModel(_ product: Product) -> ProductItemCollectionViewModel {
         let data = cartState
-            .map { state -> PizzaItemCollectionViewModel.Data in
-                let pizzaCount = state.pizzas[pizza] ?? 0
-                return .init(pizza: pizza, count: pizzaCount)
+            .map { state -> ProductItemCollectionViewModel.Data in
+                let productCount = state.products[product] ?? 0
+                return .init(product: product, count: productCount)
             }
             .asDriver(onErrorRecover: { error in
-                assertionFailure("Failed to convert pizza to viewModel due to error: \(error)")
-                return .just(.init(pizza: pizza, count: 0))
+                assertionFailure("Failed to convert product to viewModel due to error: \(error)")
+                return .just(.init(product: product, count: 0))
             })
 
-        return PizzaItemCollectionViewModel(
+        return ProductItemCollectionViewModel(
             data: data,
             eventHandler: { [weak self] event in
                 print("???? event in model \(event)")
                 switch event {
                 case .increment:
-                    self?.cartEventDispatcher(.add(pizza: pizza))
+                    self?.cartEventDispatcher(.add(product: product))
                 case .decrement:
-                    self?.cartEventDispatcher(.remove(pizza: pizza))
+                    self?.cartEventDispatcher(.remove(product: product))
                 }
             }
         )

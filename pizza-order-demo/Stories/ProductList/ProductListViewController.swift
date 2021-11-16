@@ -1,5 +1,5 @@
 //
-//  PizzaListViewController.swift
+//  ProductListViewController.swift
 //  pizza-order-demo
 //
 //  Created by Igor Kokoev on 29.10.2021.
@@ -9,17 +9,17 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class PizzaListViewController: UIViewController {
+final class ProductListViewController: UIViewController {
     private let collectionViewInsets = UIEdgeInsets(top: 20.0, left: 10.0, bottom: 20.0, right: 10.0)
     private lazy var flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: flowLayout)
     private lazy var proceedToPaymentButton = UIButton(configuration: .filled())
     private var proceedToPaymentButtonBottomConstraint: NSLayoutConstraint?
-    private let viewModel: PizzaListViewModel
-    private var dataSource = [PizzaItemCollectionViewModel]()
+    private let viewModel: ProductListViewModel
+    private var dataSource = [ProductItemCollectionViewModel]()
     private let diposeBag = DisposeBag()
 
-    init(viewModel: PizzaListViewModel) {
+    init(viewModel: ProductListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -39,17 +39,17 @@ final class PizzaListViewController: UIViewController {
             })
             .disposed(by: diposeBag)
 
-        viewModel.loadPizzas()
+        viewModel.loadProducts()
     }
 
     func configureUI() {
-        title = "Pizzas"
+        title = "Products"
         view.backgroundColor = .white
         configureCollectionView()
     }
 
     func configureCollectionView() {
-        collectionView.register(cellClass: PizzaItemCollectionViewCell.self)
+        collectionView.register(cellClass: ProductItemCollectionViewCell.self)
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
@@ -74,7 +74,7 @@ final class PizzaListViewController: UIViewController {
     }
 }
 
-extension PizzaListViewController: UICollectionViewDataSource {
+extension ProductListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         dataSource.count
     }
@@ -83,18 +83,18 @@ extension PizzaListViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let identifier = String(describing: PizzaItemCollectionViewCell.self)
+        let identifier = String(describing: ProductItemCollectionViewCell.self)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-        guard let pizzaCell = cell as? PizzaItemCollectionViewCell else {
+        guard let productCell = cell as? ProductItemCollectionViewCell else {
             fatalError("Failed to deque cell")
         }
         let model = dataSource[indexPath.item]
-        pizzaCell.configure(with: model)
-        return pizzaCell
+        productCell.configure(with: model)
+        return productCell
     }
 }
 
-extension PizzaListViewController: UICollectionViewDelegateFlowLayout {
+extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,

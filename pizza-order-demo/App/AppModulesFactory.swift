@@ -13,7 +13,8 @@ struct AppModulesFactory {
     let authService: AuthService
     let scheduler: SchedulerType
     let cartStore: CartStore
-    let pizzaProvidingService: PizzaProvidingService
+    let pizzaProvidingService: ProductProvidingService
+    let drinksProvidingService: ProductProvidingService
 
     static func liveFactory() -> Self {
         let scheduler = MainScheduler.instance
@@ -21,7 +22,8 @@ struct AppModulesFactory {
             authService: LiveAuthService(),
             scheduler: scheduler,
             cartStore: CartStore(scheduler: scheduler),
-            pizzaProvidingService: LivePizzaProvidingService()
+            pizzaProvidingService: PizzaProvidingService(scheduler: scheduler),
+            drinksProvidingService: DrinksProvidingService(scheduler: scheduler)
         )
     }
 
@@ -37,19 +39,26 @@ struct AppModulesFactory {
         return AuthViewController(viewModel: viewModel)
     }
 
-    func makePizzaListModule(dismissHandler: (() -> Void)? = nil) -> UIViewController {
+    func makePizzaListModule() -> UIViewController {
+        makeListModule(productService: pizzaProvidingService)
+    }
+
+    func makeDrinksListModule() -> UIViewController {
+        makeListModule(productService: drinksProvidingService)
+    }
+
+    private func makeListModule(productService: ProductProvidingService) -> UIViewController {
         let stateDriver = cartStore.state
             .asDriver(onErrorRecover: { error in
                 assertionFailure("Failed to convert cart store to Driver due to error: \(error)")
                 return .just(.init())
             })
-        let viewModel = PizzaListViewModel(
+        let viewModel = ProductListViewModel(
             cartState: stateDriver,
             cartEventDispatcher: cartStore.dispatch(event:),
-            pizzaProvidingService: pizzaProvidingService,
-            dismissHandler: dismissHandler
+            productProvidingService: productService
         )
-        return PizzaListViewController(viewModel: viewModel)
+        return ProductListViewController(viewModel: viewModel)
     }
 }
 

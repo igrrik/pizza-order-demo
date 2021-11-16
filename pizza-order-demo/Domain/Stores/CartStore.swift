@@ -12,13 +12,13 @@ import RxCocoa
 final class CartStore {
 
     struct State: Equatable {
-        var price: Int { pizzas.map { $0.key.price * $0.value }.reduce(0, +) }
-        var pizzas: [Pizza: Int] = [:]
+        var price: Int { products.map { $0.key.price * $0.value }.reduce(0, +) }
+        var products: [Product: Int] = [:]
     }
 
     enum Event {
-        case add(pizza: Pizza)
-        case remove(pizza: Pizza)
+        case add(product: Product)
+        case remove(product: Product)
     }
 
     let state: Infallible<State>
@@ -42,27 +42,26 @@ final class CartStore {
     }
 
     func dispatch(event: Event) {
-        // TODO: understand why events are sent 4 times
         eventsStream.accept(event)
     }
 
     static func reduce(state: State, event: Event) -> State {
         var state = state
         switch event {
-        case .add(let pizza):
-            let pizzaCount = state.pizzas[pizza] ?? 0
-            state.pizzas[pizza] = pizzaCount + 1
-        case .remove(let pizza):
-            guard var pizzaCount = state.pizzas[pizza] else {
-                assertionFailure("You can't remove pizza which count is zero")
+        case .add(let product):
+            let productCount = state.products[product] ?? 0
+            state.products[product] = productCount + 1
+        case .remove(let product):
+            guard var productCount = state.products[product] else {
+                assertionFailure("You can't remove product which count is zero")
                 break
             }
-            pizzaCount -= 1
+            productCount -= 1
 
-            if pizzaCount > 0 {
-                state.pizzas[pizza] = pizzaCount
+            if productCount > 0 {
+                state.products[product] = productCount
             } else {
-                state.pizzas.removeValue(forKey: pizza)
+                state.products.removeValue(forKey: product)
             }
         }
         return state

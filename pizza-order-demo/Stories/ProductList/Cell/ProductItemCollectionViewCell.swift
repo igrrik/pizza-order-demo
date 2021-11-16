@@ -1,5 +1,5 @@
 //
-//  PizzaItemCollectionViewCell.swift
+//  ProductItemCollectionViewCell.swift
 //  pizza-order-demo
 //
 //  Created by Igor Kokoev on 29.10.2021.
@@ -10,8 +10,8 @@ import RxFeedback
 import RxSwift
 import RxCocoa
 
-final class PizzaItemCollectionViewCell: UICollectionViewCell {
-    @IBOutlet var pizzaImageView: UIImageView!
+final class ProductItemCollectionViewCell: UICollectionViewCell {
+    @IBOutlet var productImageView: UIImageView!
     @IBOutlet var addToCartButton: UIButton!
     @IBOutlet var countActionsStackView: UIStackView!
     @IBOutlet var countLabel: UILabel!
@@ -25,9 +25,9 @@ final class PizzaItemCollectionViewCell: UICollectionViewCell {
         disposeBag = .init()
     }
 
-    func configure(with model: PizzaItemCollectionViewModel) {
-        model.pizzaImage
-            .drive(pizzaImageView.rx.image)
+    func configure(with model: ProductItemCollectionViewModel) {
+        model.productImage
+            .drive(productImageView.rx.image)
             .disposed(by: disposeBag)
 
         model.price
@@ -47,28 +47,28 @@ final class PizzaItemCollectionViewCell: UICollectionViewCell {
 
         addToCartButton.rx.tap
             .debug()
-            .map { PizzaItemCollectionViewModel.Event.increment }
+            .map { ProductItemCollectionViewModel.Event.increment }
             .bind(onNext: model.dispatch(event:))
             .disposed(by: disposeBag)
 
         incrementButton.rx.tap
             .debug()
-            .map { PizzaItemCollectionViewModel.Event.increment }
+            .map { ProductItemCollectionViewModel.Event.increment }
             .bind(onNext: model.dispatch(event:))
             .disposed(by: disposeBag)
 
         decrementButton.rx.tap
             .debug()
-            .map { PizzaItemCollectionViewModel.Event.decrement }
+            .map { ProductItemCollectionViewModel.Event.decrement }
             .bind(onNext: model.dispatch(event:))
             .disposed(by: disposeBag)
 
 //        let decrementEvents = decrementButton.rx.tap
-//            .map { PizzaItemCollectionViewModel.Event.decrement }
+//            .map { ProductItemCollectionViewModel.Event.decrement }
 //        let incrementEvents = addToCartButton.rx.tap
 //            .debug()
 //            .concat(incrementButton.rx.tap)
-//            .map { PizzaItemCollectionViewModel.Event.increment }
+//            .map { ProductItemCollectionViewModel.Event.increment }
 //
 //        decrementEvents.concat(incrementEvents)
 //            .bind(onNext: model.dispatch(event:))
