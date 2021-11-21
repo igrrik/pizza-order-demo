@@ -27,30 +27,30 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Avs-Aj-MhG" userLabel="Purchase Container">
-                    <rect key="frame" x="0.0" y="773.5" width="414" height="122.5"/>
+                    <rect key="frame" x="0.0" y="784.5" width="414" height="77.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="k1T-5g-P6U">
-                            <rect key="frame" x="32" y="16" width="350" height="58.5"/>
+                            <rect key="frame" x="32" y="16" width="350" height="45.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KrX-6R-r3I">
-                                    <rect key="frame" x="0.0" y="0.0" width="80.5" height="58.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="45.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-YL-bek">
-                                            <rect key="frame" x="0.0" y="0.0" width="80.5" height="30"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="23"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35-45 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZX-ll-AbW">
-                                            <rect key="frame" x="0.0" y="38" width="80.5" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="0.0" y="31" width="60" height="14.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZk-e1-11L">
-                                    <rect key="frame" x="96.5" y="0.0" width="253.5" height="58.5"/>
+                                    <rect key="frame" x="76" y="0.0" width="274" height="45.5"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Purchase" cornerStyle="large"/>
                                     <connections>
@@ -65,7 +65,7 @@
                         <constraint firstAttribute="trailing" secondItem="k1T-5g-P6U" secondAttribute="trailing" constant="32" id="Okt-0K-hI5"/>
                         <constraint firstItem="k1T-5g-P6U" firstAttribute="leading" secondItem="Avs-Aj-MhG" secondAttribute="leading" constant="32" id="RaJ-h8-tqj"/>
                         <constraint firstItem="k1T-5g-P6U" firstAttribute="top" secondItem="Avs-Aj-MhG" secondAttribute="top" constant="16" id="hAs-Mm-F7l"/>
-                        <constraint firstAttribute="bottom" secondItem="k1T-5g-P6U" secondAttribute="bottom" constant="48" id="tGY-ki-Qks"/>
+                        <constraint firstAttribute="bottom" secondItem="k1T-5g-P6U" secondAttribute="bottom" constant="16" id="tGY-ki-Qks"/>
                     </constraints>
                 </view>
             </subviews>
@@ -74,7 +74,7 @@
             <constraints>
                 <constraint firstItem="Avs-Aj-MhG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="443-Tv-yYV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ugt-iu-neT" secondAttribute="trailing" id="5Z1-pl-N5Q"/>
-                <constraint firstAttribute="bottom" secondItem="Avs-Aj-MhG" secondAttribute="bottom" id="6FK-Sf-zAX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Avs-Aj-MhG" secondAttribute="bottom" id="6FK-Sf-zAX"/>
                 <constraint firstItem="Ugt-iu-neT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HbZ-aK-9HU"/>
                 <constraint firstItem="Ugt-iu-neT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JnR-0L-HUD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ugt-iu-neT" secondAttribute="bottom" id="ksJ-pM-vJt"/>

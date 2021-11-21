@@ -31,9 +31,7 @@ final class CartListPresenter {
 
 extension CartListPresenter: CartListViewOutput {
     func viewDidLoad() {
-        interactor?.observeCartUpdates()
-        viewInput?.updatePurchaseButton(isActive: false)
-        viewInput?.updatePrice("0 $")
+        interactor?.observeCartUpdates()        
     }
 
     func didTapPurchaseButton() {

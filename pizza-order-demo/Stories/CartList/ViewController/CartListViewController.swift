@@ -53,13 +53,18 @@ final class CartListViewController: UIViewController, CartListViewInput {
         tableView.dataSource = self
         tableView.rowHeight = 160
         tableView.register(cellClass: CartListTableViewCell.self)
+        var insets = tableView.contentInset
+        insets.bottom = purchaseContainer.bounds.height
+        tableView.contentInset = insets
     }
 
     private func addShadowToPurchaseContainer() {
-        purchaseContainer.layer.shadowColor = UIColor.black.cgColor
+        purchaseContainer.layer.shadowColor = UIColor.gray.cgColor
         purchaseContainer.layer.shadowOpacity = 1
-        purchaseContainer.layer.shadowOffset = .zero
-        purchaseContainer.layer.shadowRadius = 10
+        purchaseContainer.layer.shadowRadius = 5
+        let rect = CGRect(x: 0, y: 0, width: view.bounds.width, height: 1)
+        purchaseContainer.layer.shadowPath = UIBezierPath(rect: rect).cgPath
+        
     }
 }
 

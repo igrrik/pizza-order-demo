@@ -36,6 +36,7 @@ final class CartStore {
         .asInfallible(onErrorRecover: { error in
             fatalError(error.localizedDescription)
         })
+        .share(replay: 1)
 
         self.eventsStream = eventsStream
     }

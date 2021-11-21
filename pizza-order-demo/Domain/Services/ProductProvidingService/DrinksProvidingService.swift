@@ -24,10 +24,10 @@ final class DrinksProvidingService: ProductProvidingService {
 extension Product {
     fileprivate static let allDrinks: [Product] = [cola, beer, water, wine]
 
-    static let cola = drink(name: "Coca-Cola", price: 99, imageName: "cola")
-    static let beer = drink(name: "Corona", price: 219, imageName: "beer")
-    static let water = drink(name: "BonAqua", price: 69, imageName: "water")
-    static let wine = drink(name: "Wine", price: 699, imageName: "wine")
+    static let cola = drink(name: "Coca-Cola", price: 7, imageName: "cola")
+    static let beer = drink(name: "Corona", price: 14, imageName: "beer")
+    static let water = drink(name: "BonAqua", price: 3, imageName: "water")
+    static let wine = drink(name: "Wine", price: 59, imageName: "wine")
 }
 
 private func drink(name: String, price: Int, imageName: String) -> Product {
