@@ -62,16 +62,5 @@ final class ProductItemCollectionViewCell: UICollectionViewCell {
             .map { ProductItemCollectionViewModel.Event.decrement }
             .bind(onNext: model.dispatch(event:))
             .disposed(by: disposeBag)
-
-//        let decrementEvents = decrementButton.rx.tap
-//            .map { ProductItemCollectionViewModel.Event.decrement }
-//        let incrementEvents = addToCartButton.rx.tap
-//            .debug()
-//            .concat(incrementButton.rx.tap)
-//            .map { ProductItemCollectionViewModel.Event.increment }
-//
-//        decrementEvents.concat(incrementEvents)
-//            .bind(onNext: model.dispatch(event:))
-//            .disposed(by: disposeBag)
     }
 }

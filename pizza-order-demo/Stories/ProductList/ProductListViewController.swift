@@ -41,7 +41,6 @@ final class ProductListViewController: UIViewController {
     }
 
     func configureUI() {
-        title = "Products"
         view.backgroundColor = .white
         configureCollectionView()
     }

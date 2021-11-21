@@ -21,8 +21,11 @@ final class AppFlowControllerViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let viewControllers = [appModulesFactory.makePizzaListModule(), appModulesFactory.makeDrinksListModule()]
+        let viewControllers = [
+            appModulesFactory.makePizzaListModule(),
+            appModulesFactory.makeDrinksListModule(),
+            appModulesFactory.makeCartListModule()
+        ].map { UINavigationController(rootViewController: $0) }
         setViewControllers(viewControllers, animated: false)
         selectedIndex = 0
     }

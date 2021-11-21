@@ -39,15 +39,36 @@ struct AppModulesFactory {
         return AuthViewController(viewModel: viewModel)
     }
 
+    func makeCartListModule() -> UIViewController {
+        let vc = CartListViewController()
+        vc.title = "Cart"
+//        let image = UIImage(named: "tab_bar_cart")
+//        vc.tabBarItem = UITabBarItem(title: "Cart", image: image, selectedImage: image)
+
+        let presenter = CartListPresenter()
+        vc.viewOutput = presenter
+        presenter.viewInput = vc
+
+        let interactor = CartListInteractor(cartStore: cartStore)
+        presenter.interactor = interactor
+        interactor.output = presenter
+
+        return vc
+    }
+
     func makePizzaListModule() -> UIViewController {
         let vc = makeListModule(productService: pizzaProvidingService)
         vc.title = "Pizza"
+//        let image = UIImage(named: "tab_bar_pizza")
+//        vc.tabBarItem = UITabBarItem(title: "Pizza", image: image, selectedImage: image)
         return vc
     }
 
     func makeDrinksListModule() -> UIViewController {
         let vc = makeListModule(productService: drinksProvidingService)
         vc.title = "Drink"
+//        let image = UIImage(named: "tab_bar_bottle")
+//        vc.tabBarItem = UITabBarItem(title: "Drink", image: image, selectedImage: image)
         return vc
     }
 
