@@ -35,6 +35,6 @@ final class CartListInteractor: CartListInteractorInput {
     }
 
     func purchaseProducts() {
-        output?.failedToProceedPurchase(error: CommonError(text: "Failed to purchase products.\nTry again later."))
+        output?.purchaseDidFinish(result: .failure(.unauthorized))
     }
 }

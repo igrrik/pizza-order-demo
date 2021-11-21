@@ -9,6 +9,7 @@ import Foundation
 
 final class CartListPresenter {
     var interactor: CartListInteractorInput?
+    weak var moduleOutput: CartListModuleOutput?
     weak var viewInput: CartListViewInput?
 
     private func convertItemsToCellModels(items: [CartItem]) -> [CartListTableViewCellModel] {
@@ -46,8 +47,13 @@ extension CartListPresenter: CartListInteractorOutput {
         viewInput?.updateDataSource(convertItemsToCellModels(items: items))
     }
 
-    func failedToProceedPurchase(error: Error) {
-        viewInput?.displayError(error)
+    func purchaseDidFinish(result: Result<Void, PurchaseError>) {
+        switch result {
+        case .success:
+            print("Purchased successfully")
+        case .failure:
+            moduleOutput?.openAuthorizationFlow()
+        }
     }
 }
 

@@ -42,12 +42,6 @@ final class CartListViewController: UIViewController, CartListViewInput {
         tableView.reloadData()
     }
 
-    func displayError(_ error: Error) {
-        let controller = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(controller, animated: true, completion: nil)
-    }
-
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self

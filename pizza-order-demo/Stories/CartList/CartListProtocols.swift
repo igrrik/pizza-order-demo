@@ -7,11 +7,14 @@
 
 import Foundation
 
+protocol CartListModuleOutput: AnyObject {
+    func openAuthorizationFlow()
+}
+
 protocol CartListViewInput: AnyObject {
     func updatePrice(_ price: String)
     func updatePurchaseButton(isActive: Bool)
     func updateDataSource(_ dataSource: [CartListTableViewCellModel])
-    func displayError(_ error: Error)
 }
 
 protocol CartListViewOutput {
@@ -27,6 +30,10 @@ protocol CartListInteractorInput {
 }
 
 protocol CartListInteractorOutput: AnyObject {
-    func failedToProceedPurchase(error: Error)
     func cartDidUpdate(_ items: [CartItem])
+    func purchaseDidFinish(result: Result<Void, PurchaseError>)
+}
+
+enum PurchaseError: Error {
+    case unauthorized
 }
