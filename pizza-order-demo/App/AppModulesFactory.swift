@@ -28,14 +28,11 @@ struct AppModulesFactory {
     }
 
     func makeAuthModule() -> UIViewController {
-        let uiEventsStream = PublishRelay<AuthViewUIEvent>()
-        let stateController = AuthViewStateController(
+        let viewModel = AuthViewModel(
+            initialState: .init(username: "", password: ""),
             authService: authService,
-            scheduler: scheduler,
-            uiEventsStream: uiEventsStream.asObservable()
+            scheduler: scheduler
         )
-        let state = stateController.authViewState()
-        let viewModel = AuthViewModel(state: state, dispatchUIEvent: uiEventsStream.accept(_:))
         return AuthViewController(viewModel: viewModel)
     }
 
@@ -79,13 +76,5 @@ struct AppModulesFactory {
             productProvidingService: productService
         )
         return ProductListViewController(viewModel: viewModel)
-    }
-}
-
-private extension AuthViewStateController {
-    func authViewState() -> Observable<AuthViewState> {
-        return Observable
-            .deferred(observeState)
-            .map { $0 as AuthViewState }            
     }
 }

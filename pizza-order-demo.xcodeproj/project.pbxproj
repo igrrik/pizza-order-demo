@@ -37,7 +37,6 @@
 		90E8E74027275AA600F8E71C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E73F27275AA600F8E71C /* AuthService.swift */; };
 		90E8E74227275ACC00F8E71C /* LiveAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E74127275ACC00F8E71C /* LiveAuthService.swift */; };
 		90E8E74427275CA000F8E71C /* AppModulesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E74327275CA000F8E71C /* AppModulesFactory.swift */; };
-		90E8E74627275D3D00F8E71C /* AuthViewStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E74527275D3D00F8E71C /* AuthViewStateController.swift */; };
 		90E8E7492727671F00F8E71C /* UIViewController+ErrorRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E7482727671F00F8E71C /* UIViewController+ErrorRepresentable.swift */; };
 		90EB043627432A18003E73DE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB043527432A18003E73DE /* Product.swift */; };
 		90EB043827432B09003E73DE /* DrinksProvidingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB043727432B09003E73DE /* DrinksProvidingService.swift */; };
@@ -96,7 +95,6 @@
 		90E8E73F27275AA600F8E71C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		90E8E74127275ACC00F8E71C /* LiveAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAuthService.swift; sourceTree = "<group>"; };
 		90E8E74327275CA000F8E71C /* AppModulesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModulesFactory.swift; sourceTree = "<group>"; };
-		90E8E74527275D3D00F8E71C /* AuthViewStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewStateController.swift; sourceTree = "<group>"; };
 		90E8E7482727671F00F8E71C /* UIViewController+ErrorRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorRepresentable.swift"; sourceTree = "<group>"; };
 		90EB043527432A18003E73DE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		90EB043727432B09003E73DE /* DrinksProvidingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksProvidingService.swift; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 			children = (
 				90E8E7372727572200F8E71C /* AuthViewController.swift */,
 				90E8E73B272758BE00F8E71C /* AuthViewModel.swift */,
-				90E8E74527275D3D00F8E71C /* AuthViewStateController.swift */,
 				90E8E7382727572200F8E71C /* AuthViewController.xib */,
 			);
 			path = Auth;
@@ -480,7 +477,6 @@
 				90E8E73C272758BE00F8E71C /* AuthViewModel.swift in Sources */,
 				9054A8D72741BB34004818A3 /* PizzaProvidingService.swift in Sources */,
 				90E8E74427275CA000F8E71C /* AppModulesFactory.swift in Sources */,
-				90E8E74627275D3D00F8E71C /* AuthViewStateController.swift in Sources */,
 				90EB044027433877003E73DE /* AppFlowViewController.swift in Sources */,
 				90A5F522272B58E000D27738 /* ProductListViewController.swift in Sources */,
 				90E8E74227275ACC00F8E71C /* LiveAuthService.swift in Sources */,

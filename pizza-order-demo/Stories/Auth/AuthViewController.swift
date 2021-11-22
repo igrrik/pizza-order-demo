@@ -55,22 +55,16 @@ final class AuthViewController: UIViewController {
     private func configureActions() {
         usernameTextField.rx.text
             .compactMap { $0 }
-            .bind(onNext: { [weak self] text in
-                self?.viewModel.dispatch(event: .didChangeUsername(text))
-            })
+            .bind(onNext: viewModel.change(username:))
             .disposed(by: disposeBag)
 
         passwordTextField.rx.text
             .compactMap { $0 }
-            .bind(onNext: { [weak self] text in
-                self?.viewModel.dispatch(event: .didChangePassword(text))
-            })
+            .bind(onNext: viewModel.change(password:))
             .disposed(by: disposeBag)
 
         signInButton.rx.tap
-            .bind(onNext: { [weak self] in
-                self?.viewModel.dispatch(event: .didTapSignInButton)
-            })
+            .bind(onNext: viewModel.signIn)            
             .disposed(by: disposeBag)
     }
 }
