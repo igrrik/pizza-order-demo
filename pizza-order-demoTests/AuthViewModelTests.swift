@@ -20,7 +20,7 @@ final class AuthViewModelTests: XCTestCase {
         try super.setUpWithError()
         disposeBag = .init()
         authServiceMock = .init()
-        testScheduler = .init(initialClock: .zero)
+        testScheduler = .init(initialClock: .zero, simulateProcessingDelay: false)
     }
 
     func testThatUsernameIsChanged() {
@@ -105,7 +105,6 @@ final class AuthViewModelTests: XCTestCase {
         //
         // Arrange
         //
-        testScheduler = .init(initialClock: .zero, simulateProcessingDelay: false)
         authServiceMock.authUsernamePasswordResult = .error(CommonError("Auth failed"))
         let viewModel = makeViewModel(initialState: .init(username: "admin", password: "password"))
         let observer = makeSignalObserver(from: viewModel, at: \.error)
@@ -167,7 +166,6 @@ final class AuthViewModelTests: XCTestCase {
     ) -> TestableObserver<T> {
         let observer = testScheduler.createObserver(T.self)
         viewModel[keyPath: keyPath]
-//            .skip(1)
             .emit(to: observer)
             .disposed(by: disposeBag)
 
