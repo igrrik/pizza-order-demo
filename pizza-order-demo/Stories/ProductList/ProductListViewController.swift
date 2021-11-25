@@ -13,9 +13,10 @@ final class ProductListViewController: UIViewController {
     private let collectionViewInsets = UIEdgeInsets(top: 20.0, left: 10.0, bottom: 20.0, right: 10.0)
     private lazy var flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: flowLayout)
+    private lazy var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
     private let viewModel: ProductListViewModel
-    private var dataSource = [ProductItemCollectionViewModel]()
     private let diposeBag = DisposeBag()
+    private var dataSource = [ProductItemCollectionViewModel]()
 
     init(viewModel: ProductListViewModel) {
         self.viewModel = viewModel
@@ -29,23 +30,28 @@ final class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-
-        viewModel.dataSource
-            .drive(onNext: { [weak self] items in
-                self?.dataSource = items
-                self?.collectionView.reloadData()
-            })
-            .disposed(by: diposeBag)
+        configureBindings()
 
         viewModel.loadProducts()
     }
 
-    func configureUI() {
+    private func configureUI() {
         view.backgroundColor = .white
         configureCollectionView()
+        configureLoadingIndicator()
     }
 
-    func configureCollectionView() {
+    private func configureLoadingIndicator() {
+        view.addSubview(loadingIndicator)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+    }
+
+    private func configureCollectionView() {
         collectionView.register(cellClass: ProductItemCollectionViewCell.self)
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,6 +65,19 @@ final class ProductListViewController: UIViewController {
         flowLayout.sectionInset = collectionViewInsets
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+
+    private func configureBindings() {
+        viewModel.dataSource
+            .drive(onNext: { [weak self] items in
+                self?.dataSource = items
+                self?.collectionView.reloadData()
+            })
+            .disposed(by: diposeBag)
+
+        viewModel.isLoadingIndicatorVisible
+            .drive(loadingIndicator.rx.isAnimating)
+            .disposed(by: diposeBag)
     }
 }
 

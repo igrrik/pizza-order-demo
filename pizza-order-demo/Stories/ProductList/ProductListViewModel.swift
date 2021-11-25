@@ -66,7 +66,6 @@ final class ProductListViewModel {
         return ProductItemCollectionViewModel(
             data: data,
             eventHandler: { [weak self] event in
-                print("???? event in model \(event)")
                 switch event {
                 case .increment:
                     self?.cartEventDispatcher(.add(product: product))
