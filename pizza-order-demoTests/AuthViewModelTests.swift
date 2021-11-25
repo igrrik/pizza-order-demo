@@ -20,7 +20,7 @@ final class AuthViewModelTests: XCTestCase {
         try super.setUpWithError()
         disposeBag = .init()
         authServiceMock = .init()
-        testScheduler = .init(initialClock: .zero, simulateProcessingDelay: false)
+        testScheduler = .init(initialClock: .zero, simulateProcessingDelay: false)        
     }
 
     func testThatUsernameIsChanged() {

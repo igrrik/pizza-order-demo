@@ -124,6 +124,7 @@ extension AuthViewModel {
                 .asObservable()
         })
     }
+    
 //    private func performSignIn() -> Feedback {
 //        return { state in
 //            self.eventsStream
@@ -140,9 +141,7 @@ extension AuthViewModel {
 //                    self.authService.auth(username: state.username, password: state.password)
 //                }
 //                .map { Event.authResult(.success($0)) }
-//                .asSignal(onErrorRecover: { error in
-//                    return .just(Event.authResult(.failure(error)))
-//                })
+//                .catch { .just(.authResult(.failure($0))) }
 //        }
 //    }
 }
