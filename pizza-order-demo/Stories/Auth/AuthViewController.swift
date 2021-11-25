@@ -50,6 +50,12 @@ final class AuthViewController: UIViewController {
                 self?.present(error: errorString)
             })
             .disposed(by: disposeBag)
+
+        viewModel.success
+            .emit { [weak self] _ in
+                self?.showSuccessfullAuth()
+            }
+            .disposed(by: disposeBag)
     }
 
     private func configureActions() {
@@ -66,6 +72,16 @@ final class AuthViewController: UIViewController {
         signInButton.rx.tap
             .bind(onNext: viewModel.signIn)            
             .disposed(by: disposeBag)
+    }
+
+    private func showSuccessfullAuth() {
+        let controller = UIAlertController(
+            title: "Success",
+            message: "You've been authenticated",
+            preferredStyle: .alert
+        )
+        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(controller, animated: true, completion: nil)
     }
 }
 

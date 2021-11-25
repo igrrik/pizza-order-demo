@@ -11,20 +11,24 @@ import RxCocoa
 import RxFeedback
 
 final class AuthViewModel {
-    private(set) lazy var error: Signal<String> = state.compactMap { $0.error }.asSignal(onErrorJustReturn: "")
     private(set) lazy var username: Driver<String> = state.map { $0.username }.asDriver(onErrorJustReturn: "")
     private(set) lazy var password: Driver<String> = state.map { $0.password }.asDriver(onErrorJustReturn: "")
     private(set) lazy var isButtonEnabled: Driver<Bool> = state.map { $0.isButtonEnabled }.asDriver(onErrorJustReturn: false)
+    private(set) lazy var error: Signal<String> = state.compactMap { $0.error }.asSignal(onErrorJustReturn: "")
+    private(set) lazy var success: Signal<Void> = {
+        state
+            .compactMap { $0.authToken != nil ? Void() : nil }
+            .asSignal(onErrorRecover: { _ in fatalError("Impossible state") })
+    }()
 
     private let authService: AuthService
     private let scheduler: SchedulerType
     private let eventsStream = PublishRelay<Event>()
     private let initialState: State
-    private lazy var state: Driver<State> = Driver.system(
-        initialState: initialState,
-        reduce: Self.reduce(state:event:),
-        feedback: feedbacks()
-    )
+    private lazy var state: Driver<State> = {
+        Driver.system(initialState: initialState, reduce: Self.reduce(state:event:), feedback: feedbacks())
+            .distinctUntilChanged()
+    }()
 
     init(initialState: State, authService: AuthService, scheduler: SchedulerType) {
         self.authService = authService
@@ -37,7 +41,7 @@ final class AuthViewModel {
     }
 
     func change(password: String) {
-        eventsStream.accept(.didChangeUsername(password))
+        eventsStream.accept(.didChangePassword(password))
     }
 
     func signIn() {

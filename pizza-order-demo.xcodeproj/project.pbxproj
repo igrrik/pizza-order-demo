@@ -18,6 +18,9 @@
 		9071EDBC274ABBC100EF884A /* CartListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071EDBB274ABBC100EF884A /* CartListPresenter.swift */; };
 		9071EDBE274ABBD000EF884A /* CartListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071EDBD274ABBD000EF884A /* CartListProtocols.swift */; };
 		9071EDC0274AC28C00EF884A /* CartListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071EDBF274AC28C00EF884A /* CartListInteractor.swift */; };
+		9071EDC4274BD57900EF884A /* CartStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9071EDC3274BD57900EF884A /* CartStoreTests.swift */; };
+		9071EDCA274BD79300EF884A /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 9071EDC9274BD79300EF884A /* RxTest */; };
+		909B3761274D0097001CBED4 /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B3760274D0097001CBED4 /* AuthViewModelTests.swift */; };
 		90A5F51C272B4D2B00D27738 /* ProductItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5F51A272B4D2B00D27738 /* ProductItemCollectionViewCell.swift */; };
 		90A5F51D272B4D2B00D27738 /* ProductItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A5F51B272B4D2B00D27738 /* ProductItemCollectionViewCell.xib */; };
 		90A5F522272B58E000D27738 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5F521272B58E000D27738 /* ProductListViewController.swift */; };
@@ -27,7 +30,6 @@
 		90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E701272754F400F8E71C /* SceneDelegate.swift */; };
 		90E8E709272754F800F8E71C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E8E708272754F800F8E71C /* Assets.xcassets */; };
 		90E8E70C272754F800F8E71C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90E8E70A272754F800F8E71C /* LaunchScreen.storyboard */; };
-		90E8E717272754F800F8E71C /* pizza_order_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E716272754F800F8E71C /* pizza_order_demoTests.swift */; };
 		90E8E721272754F800F8E71C /* pizza_order_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E720272754F800F8E71C /* pizza_order_demoUITests.swift */; };
 		90E8E723272754F800F8E71C /* pizza_order_demoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8E722272754F800F8E71C /* pizza_order_demoUITestsLaunchTests.swift */; };
 		90E8E7312727557300F8E71C /* RxFeedback in Frameworks */ = {isa = PBXBuildFile; productRef = 90E8E7302727557300F8E71C /* RxFeedback */; };
@@ -73,6 +75,8 @@
 		9071EDBB274ABBC100EF884A /* CartListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListPresenter.swift; sourceTree = "<group>"; };
 		9071EDBD274ABBD000EF884A /* CartListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListProtocols.swift; sourceTree = "<group>"; };
 		9071EDBF274AC28C00EF884A /* CartListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListInteractor.swift; sourceTree = "<group>"; };
+		9071EDC3274BD57900EF884A /* CartStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartStoreTests.swift; sourceTree = "<group>"; };
+		909B3760274D0097001CBED4 /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
 		90A5F51A272B4D2B00D27738 /* ProductItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		90A5F51B272B4D2B00D27738 /* ProductItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		90A5F521272B58E000D27738 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +89,6 @@
 		90E8E70B272754F800F8E71C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90E8E70D272754F800F8E71C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90E8E712272754F800F8E71C /* pizza-order-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pizza-order-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		90E8E716272754F800F8E71C /* pizza_order_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pizza_order_demoTests.swift; sourceTree = "<group>"; };
 		90E8E71C272754F800F8E71C /* pizza-order-demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pizza-order-demoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E8E720272754F800F8E71C /* pizza_order_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pizza_order_demoUITests.swift; sourceTree = "<group>"; };
 		90E8E722272754F800F8E71C /* pizza_order_demoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pizza_order_demoUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9071EDCA274BD79300EF884A /* RxTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +245,8 @@
 		90E8E715272754F800F8E71C /* pizza-order-demoTests */ = {
 			isa = PBXGroup;
 			children = (
-				90E8E716272754F800F8E71C /* pizza_order_demoTests.swift */,
+				9071EDC3274BD57900EF884A /* CartStoreTests.swift */,
+				909B3760274D0097001CBED4 /* AuthViewModelTests.swift */,
 			);
 			path = "pizza-order-demoTests";
 			sourceTree = "<group>";
@@ -369,6 +374,9 @@
 				90E8E714272754F800F8E71C /* PBXTargetDependency */,
 			);
 			name = "pizza-order-demoTests";
+			packageProductDependencies = (
+				9071EDC9274BD79300EF884A /* RxTest */,
+			);
 			productName = "pizza-order-demoTests";
 			productReference = 90E8E712272754F800F8E71C /* pizza-order-demoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -406,6 +414,7 @@
 					};
 					90E8E711272754F800F8E71C = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1310;
 						TestTargetID = 90E8E6FB272754F400F8E71C;
 					};
 					90E8E71B272754F800F8E71C = {
@@ -425,6 +434,7 @@
 			mainGroup = 90E8E6F3272754F400F8E71C;
 			packageReferences = (
 				90E8E72F2727557300F8E71C /* XCRemoteSwiftPackageReference "RxFeedback.swift" */,
+				9071EDC8274BD79300EF884A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 90E8E6FD272754F400F8E71C /* Products */;
 			projectDirPath = "";
@@ -504,7 +514,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90E8E717272754F800F8E71C /* pizza_order_demoTests.swift in Sources */,
+				909B3761274D0097001CBED4 /* AuthViewModelTests.swift in Sources */,
+				9071EDC4274BD57900EF884A /* CartStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +730,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9W9U2X842Z;
@@ -733,6 +745,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.igorkokoev.pizza-order-demoTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pizza-order-demo.app/pizza-order-demo";
@@ -744,6 +757,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9W9U2X842Z;
@@ -852,6 +866,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9071EDC8274BD79300EF884A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		90E8E72F2727557300F8E71C /* XCRemoteSwiftPackageReference "RxFeedback.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NoTests/RxFeedback.swift.git";
@@ -863,6 +885,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9071EDC9274BD79300EF884A /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9071EDC8274BD79300EF884A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
 		90E8E7302727557300F8E71C /* RxFeedback */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 90E8E72F2727557300F8E71C /* XCRemoteSwiftPackageReference "RxFeedback.swift" */;

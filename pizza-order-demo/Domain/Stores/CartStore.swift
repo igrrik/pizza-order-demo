@@ -24,12 +24,12 @@ final class CartStore {
     let state: Infallible<State>
     private let eventsStream: PublishRelay<Event>
 
-    init(scheduler: SchedulerType) {
+    init(initialState: State = State(), scheduler: SchedulerType) {
         let eventsStream = PublishRelay<Event>()
 
         self.state = Observable.system(
-            initialState: State(),
-            reduce: Self.reduce(state:event:),
+            initialState: initialState,
+            reduce: CartStore.reduce,
             scheduler: scheduler,
             feedback: [{ _ in eventsStream.asObservable() }]
         )
@@ -54,7 +54,7 @@ final class CartStore {
             state.items[product] = cartItem
         case .remove(let product):
             guard var cartItem = state.items.removeValue(forKey: product) else {
-                assertionFailure("You can't remove product which count is zero")
+                assertionFailure("You can't remove product, that isn't presented in Cart")
                 break
             }
             cartItem.count -= 1
