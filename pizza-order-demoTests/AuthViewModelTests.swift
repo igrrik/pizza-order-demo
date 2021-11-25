@@ -105,6 +105,7 @@ final class AuthViewModelTests: XCTestCase {
         //
         // Arrange
         //
+        testScheduler = .init(initialClock: .zero, simulateProcessingDelay: false)
         authServiceMock.authUsernamePasswordResult = .error(CommonError("Auth failed"))
         let viewModel = makeViewModel(initialState: .init(username: "admin", password: "password"))
         let observer = makeSignalObserver(from: viewModel, at: \.error)
@@ -120,14 +121,8 @@ final class AuthViewModelTests: XCTestCase {
         //
         // Assert
         //
-//        print("!!!! asserting events")
-//        let receivedEvents = observer.events
-//        XCTAssertEqual(receivedEvents, [.next(5, "Auth failed")])
-        DispatchQueue.main.async {
-            print("!!!! asserting events")
-            let receivedEvents = observer.events
-            XCTAssertEqual(receivedEvents, [.next(5, "Auth failed")])
-        }
+        let receivedEvents = observer.events
+        XCTAssertEqual(receivedEvents, [.next(5, "Auth failed")])
     }
 
     func testThatAuthSucceeded() {
@@ -149,7 +144,6 @@ final class AuthViewModelTests: XCTestCase {
         //
         // Assert
         //
-        print("!!!! asserting events")
         let receivedEvents = observer.events
         XCTAssertFalse(receivedEvents.isEmpty)
     }

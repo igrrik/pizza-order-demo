@@ -25,9 +25,13 @@ final class AuthViewModel {
     private let scheduler: SchedulerType
     private let eventsStream = PublishRelay<Event>()
     private let initialState: State
-    private lazy var state: Driver<State> = {
-        Driver.system(initialState: initialState, reduce: Self.reduce(state:event:), feedback: feedbacks())
+    private lazy var state: Infallible<State> = {
+        Observable.system(initialState: initialState, reduce: Self.reduce, scheduler: scheduler, feedback: feedbacks())
             .distinctUntilChanged()
+            .asInfallible(onErrorRecover: { error in
+                fatalError("Unexpected error: \(error)")
+            })
+            .share(replay: 1)
     }()
 
     init(initialState: State, authService: AuthService, scheduler: SchedulerType) {
@@ -50,7 +54,7 @@ final class AuthViewModel {
 }
 
 extension AuthViewModel {
-    private typealias Feedback = (Driver<State>) -> Signal<Event>
+    private typealias Feedback = (ObservableSchedulerContext<State>) -> Observable<Event>
 
     struct State: Equatable {
         var isButtonEnabled: Bool { !username.isEmpty && !password.isEmpty }
@@ -58,7 +62,7 @@ extension AuthViewModel {
         var password: String
         var error: String?
         var authToken: AuthToken?
-        var shouldProcessAuth: AuthRequest?
+        var shouldPerformAuth: AuthRequest?
     }
 
     enum Event {
@@ -76,12 +80,12 @@ extension AuthViewModel {
     private static func reduce(state: State, event: Event) -> State {
         var state = state
 
-        state.shouldProcessAuth = nil
+        state.shouldPerformAuth = nil
         state.error = nil
 
         switch event {
         case .didTapSignInButton:
-            state.shouldProcessAuth = .init(username: state.username, password: state.password)
+            state.shouldPerformAuth = .init(username: state.username, password: state.password)
         case .didChangeUsername(let username):
             state.username = username
         case .didChangePassword(let password):
@@ -106,17 +110,39 @@ extension AuthViewModel {
     }
 
     private func observeUIEvents() -> Feedback {
-        return { _ in self.eventsStream.asSignal() }
+        return { _ in self.eventsStream.asObservable() }
     }
 
     private func performSignIn() -> Feedback {
-        return react(request: { $0.shouldProcessAuth }, effects: { [authService] payload in
+        return react(request: {
+            $0.shouldPerformAuth
+        }, effects: { [authService] payload in
             return authService
                 .auth(username: payload.username, password: payload.password)
                 .map { Event.authResult(.success($0)) }
-                .asSignal(onErrorRecover: { error in
-                    return .just(Event.authResult(.failure(error)))
-                })
+                .catch { .just(.authResult(.failure($0))) }
+                .asObservable()
         })
     }
+//    private func performSignIn() -> Feedback {
+//        return { state in
+//            self.eventsStream
+//                .filter { event in
+//                    switch event {
+//                    case .didTapSignInButton:
+//                        return true
+//                    default:
+//                        return false
+//                    }
+//                }
+//                .withLatestFrom(state)
+//                .flatMap { [unowned self] state in
+//                    self.authService.auth(username: state.username, password: state.password)
+//                }
+//                .map { Event.authResult(.success($0)) }
+//                .asSignal(onErrorRecover: { error in
+//                    return .just(Event.authResult(.failure(error)))
+//                })
+//        }
+//    }
 }
