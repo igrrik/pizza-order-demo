@@ -62,7 +62,6 @@ extension AuthViewModel {
         var password: String
         var error: String?
         var authToken: AuthToken?
-        var shouldPerformAuth: AuthRequest?
     }
 
     enum Event {
@@ -72,20 +71,12 @@ extension AuthViewModel {
         case authResult(Result<AuthToken, Error>)
     }
 
-    struct AuthRequest: Equatable {
-        let username: String
-        let password: String
-    }
-
     private static func reduce(state: State, event: Event) -> State {
         var state = state
 
-        state.shouldPerformAuth = nil
         state.error = nil
 
         switch event {
-        case .didTapSignInButton:
-            state.shouldPerformAuth = .init(username: state.username, password: state.password)
         case .didChangeUsername(let username):
             state.username = username
         case .didChangePassword(let password):
@@ -97,6 +88,8 @@ extension AuthViewModel {
             case .failure(let error):
                 state.error = error.localizedDescription
             }
+        case .didTapSignInButton:
+            break
         }
 
         return state
@@ -112,36 +105,24 @@ extension AuthViewModel {
     private func observeUIEvents() -> Feedback {
         return { _ in self.eventsStream.asObservable() }
     }
-
+    
     private func performSignIn() -> Feedback {
-        return react(request: {
-            $0.shouldPerformAuth
-        }, effects: { [authService] payload in
-            return authService
-                .auth(username: payload.username, password: payload.password)
+        return { state in
+            self.eventsStream
+                .filter { event in
+                    switch event {
+                    case .didTapSignInButton:
+                        return true
+                    default:
+                        return false
+                    }
+                }
+                .withLatestFrom(state)
+                .flatMap { [unowned self] state in
+                    self.authService.auth(username: state.username, password: state.password)
+                }
                 .map { Event.authResult(.success($0)) }
                 .catch { .just(.authResult(.failure($0))) }
-                .asObservable()
-        })
+        }
     }
-    
-//    private func performSignIn() -> Feedback {
-//        return { state in
-//            self.eventsStream
-//                .filter { event in
-//                    switch event {
-//                    case .didTapSignInButton:
-//                        return true
-//                    default:
-//                        return false
-//                    }
-//                }
-//                .withLatestFrom(state)
-//                .flatMap { [unowned self] state in
-//                    self.authService.auth(username: state.username, password: state.password)
-//                }
-//                .map { Event.authResult(.success($0)) }
-//                .catch { .just(.authResult(.failure($0))) }
-//        }
-//    }
 }

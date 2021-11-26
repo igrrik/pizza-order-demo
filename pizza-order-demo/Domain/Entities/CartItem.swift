@@ -10,7 +10,7 @@ import Foundation
 struct CartItem {
     let product: Product
     var count: Int
-    var price: Int { product.price * count }
+    var price: Double { product.price * Double(count) }
 }
 
 extension CartItem: Hashable {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9014CD21275125D30085E09F /* DiscountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014CD20275125D30085E09F /* DiscountService.swift */; };
+		9014CD23275126270085E09F /* LiveDiscountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014CD22275126270085E09F /* LiveDiscountService.swift */; };
 		9054A8D12741A912004818A3 /* ProductItemCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054A8D02741A912004818A3 /* ProductItemCollectionViewModel.swift */; };
 		9054A8D52741BB13004818A3 /* ProductProvidingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054A8D42741BB13004818A3 /* ProductProvidingService.swift */; };
 		9054A8D72741BB34004818A3 /* PizzaProvidingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054A8D62741BB33004818A3 /* PizzaProvidingService.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9014CD20275125D30085E09F /* DiscountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountService.swift; sourceTree = "<group>"; };
+		9014CD22275126270085E09F /* LiveDiscountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDiscountService.swift; sourceTree = "<group>"; };
 		9054A8D02741A912004818A3 /* ProductItemCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemCollectionViewModel.swift; sourceTree = "<group>"; };
 		9054A8D42741BB13004818A3 /* ProductProvidingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductProvidingService.swift; sourceTree = "<group>"; };
 		9054A8D62741BB33004818A3 /* PizzaProvidingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaProvidingService.swift; sourceTree = "<group>"; };
@@ -132,6 +136,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9014CD1F275125C20085E09F /* DiscountService */ = {
+			isa = PBXGroup;
+			children = (
+				9014CD20275125D30085E09F /* DiscountService.swift */,
+				9014CD22275126270085E09F /* LiveDiscountService.swift */,
+			);
+			path = DiscountService;
+			sourceTree = "<group>";
+		};
 		9054A8D22741BAF7004818A3 /* AuthService */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				9054A8D22741BAF7004818A3 /* AuthService */,
+				9014CD1F275125C20085E09F /* DiscountService */,
 				9054A8D32741BB00004818A3 /* ProductProvidingService */,
 			);
 			path = Services;
@@ -493,8 +507,10 @@
 				9071EDB7274AB37F00EF884A /* CartListTableViewCell.swift in Sources */,
 				90A5F524272B59D400D27738 /* UICollectionView+CellRegistration.swift in Sources */,
 				9054A8D52741BB13004818A3 /* ProductProvidingService.swift in Sources */,
+				9014CD21275125D30085E09F /* DiscountService.swift in Sources */,
 				90E8E700272754F400F8E71C /* AppDelegate.swift in Sources */,
 				90E8E7492727671F00F8E71C /* UIViewController+ErrorRepresentable.swift in Sources */,
+				9014CD23275126270085E09F /* LiveDiscountService.swift in Sources */,
 				9054A8D12741A912004818A3 /* ProductItemCollectionViewModel.swift in Sources */,
 				90EB043827432B09003E73DE /* DrinksProvidingService.swift in Sources */,
 				90A5F51C272B4D2B00D27738 /* ProductItemCollectionViewCell.swift in Sources */,

@@ -21,7 +21,7 @@ struct AppModulesFactory {
         return AppModulesFactory(
             authService: LiveAuthService(),
             scheduler: scheduler,
-            cartStore: CartStore(scheduler: scheduler),
+            cartStore: CartStore(scheduler: scheduler, discountService: LiveDiscountService()),
             pizzaProvidingService: PizzaProvidingService(scheduler: scheduler),
             drinksProvidingService: DrinksProvidingService(scheduler: scheduler)
         )

@@ -9,7 +9,7 @@ import UIKit
 
 struct Product: Hashable {
     let name: String
-    let price: Int
+    let price: Double
     let image: UIImage
     let category: Category
 }

@@ -41,10 +41,13 @@ extension CartListPresenter: CartListViewOutput {
 }
 
 extension CartListPresenter: CartListInteractorOutput {
-    func cartDidUpdate(_ items: [CartItem]) {
+    func cartItemsDidUpdate(_ items: [CartItem]) {
         viewInput?.updatePurchaseButton(isActive: !items.isEmpty)
-        viewInput?.updatePrice("\(items.totalPrice) $")
         viewInput?.updateDataSource(convertItemsToCellModels(items: items))
+    }
+
+    func cartPriceDidUpdate(_ price: CartListModulePrice) {
+        viewInput?.updatePrice(price)
     }
 
     func purchaseDidFinish(result: Result<Void, PurchaseError>) {
@@ -55,8 +58,4 @@ extension CartListPresenter: CartListInteractorOutput {
             moduleOutput?.openAuthorizationFlow()
         }
     }
-}
-
-extension Array where Element == CartItem {
-    var totalPrice: Int { map(\.price).reduce(0, +) }
 }

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartListViewController" customModule="pizza_order_demo" customModuleProvider="target">
             <connections>
+                <outlet property="priceBeforeDiscount" destination="aaL-Gf-2mJ" id="dlx-Es-c36"/>
                 <outlet property="priceLabel" destination="pCr-YL-bek" id="VPB-TY-dnw"/>
                 <outlet property="purchaseButton" destination="EZk-e1-11L" id="0eq-ig-UCs"/>
                 <outlet property="purchaseContainer" destination="Avs-Aj-MhG" id="MwG-ib-u4a"/>
@@ -27,22 +28,22 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Avs-Aj-MhG" userLabel="Purchase Container">
-                    <rect key="frame" x="0.0" y="784.5" width="414" height="77.5"/>
+                    <rect key="frame" x="0.0" y="766" width="414" height="96"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="k1T-5g-P6U">
-                            <rect key="frame" x="32" y="16" width="350" height="45.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="k1T-5g-P6U">
+                            <rect key="frame" x="32" y="16" width="350" height="64"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KrX-6R-r3I">
-                                    <rect key="frame" x="0.0" y="0.0" width="60" height="45.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="KrX-6R-r3I">
+                                    <rect key="frame" x="0.0" y="0.0" width="51.5" height="64"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-YL-bek">
-                                            <rect key="frame" x="0.0" y="0.0" width="60" height="23"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="200" text="999 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-YL-bek">
+                                            <rect key="frame" x="0.0" y="0.0" width="51.5" height="39.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35-45 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZX-ll-AbW">
-                                            <rect key="frame" x="0.0" y="31" width="60" height="14.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 $" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaL-Gf-2mJ">
+                                            <rect key="frame" x="0.0" y="39.5" width="51.5" height="24.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -50,7 +51,10 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZk-e1-11L">
-                                    <rect key="frame" x="76" y="0.0" width="274" height="45.5"/>
+                                    <rect key="frame" x="67.5" y="0.0" width="282.5" height="64"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="64" id="F6I-kf-jQp"/>
+                                    </constraints>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Purchase" cornerStyle="large"/>
                                     <connections>

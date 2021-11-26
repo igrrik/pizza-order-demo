@@ -19,9 +19,8 @@ final class CartListInteractor: CartListInteractorInput {
 
     func observeCartUpdates() {
         cartStore.state
-            .map { Array($0.items.values) }
-            .bind(onNext: { [weak self] items in
-                self?.output?.cartDidUpdate(items)
+            .bind(onNext: { [weak self] state in
+                self?.processCartUpdate(state)
             })
             .disposed(by: disposeBag)
     }
@@ -36,5 +35,20 @@ final class CartListInteractor: CartListInteractorInput {
 
     func purchaseProducts() {
         output?.purchaseDidFinish(result: .failure(.unauthorized))
+    }
+
+    private func processCartUpdate(_ state: CartStore.State) {
+        output?.cartItemsDidUpdate(Array(state.items.values))
+        output?.cartPriceDidUpdate(.init(cartState: state))
+    }
+}
+
+private extension CartListModulePrice {
+    init(cartState: CartStore.State) {
+        if cartState.discountPercent > 0 {
+            self = .discount(newPrice: cartState.priceWithDiscount, oldPrice: cartState.itemsPrice)
+        } else {
+            self = .plain(cartState.itemsPrice)
+        }
     }
 }

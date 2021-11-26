@@ -8,37 +8,45 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxFeedback
 
 final class CartStore {
 
     struct State: Equatable {
-        var price: Int { items.values.map(\.price).reduce(0, +) }
         var items: [Product: CartItem] = [:]
+        var discountPercent: Double = 0.0
+        var itemsPrice: Double { items.values.map(\.price).reduce(0, +)  }
+        var priceWithDiscount: Double { itemsPrice * ((100 - discountPercent) / 100) }
     }
 
     enum Event {
         case add(product: Product)
         case remove(product: Product)
+        case didObtain(discount: Double)
     }
 
-    let state: Infallible<State>
-    private let eventsStream: PublishRelay<Event>
+    private let initialState: State
+    private let scheduler: ImmediateSchedulerType
+    private let discountService: DiscountService
+    private let eventsStream = PublishRelay<Event>()
 
-    init(initialState: State = State(), scheduler: SchedulerType) {
-        let eventsStream = PublishRelay<Event>()
-
-        self.state = Observable.system(
+    private(set) lazy var state: Infallible<State> = {
+        return Observable.system(
             initialState: initialState,
             reduce: CartStore.reduce,
             scheduler: scheduler,
-            feedback: [{ _ in eventsStream.asObservable() }]
+            feedback: [observeExternalEvents(), obtainDiscount()]
         )
         .asInfallible(onErrorRecover: { error in
             fatalError(error.localizedDescription)
         })
         .share(replay: 1)
+    }()
 
-        self.eventsStream = eventsStream
+    init(initialState: State = State(), scheduler: SchedulerType, discountService: DiscountService) {
+        self.initialState = initialState
+        self.discountService = discountService
+        self.scheduler = scheduler
     }
 
     func dispatch(event: Event) {
@@ -62,7 +70,23 @@ final class CartStore {
             if cartItem.count > 0 {
                 state.items[product] = cartItem
             }
+        case .didObtain(let discount):
+            state.discountPercent = discount
         }
         return state
+    }
+
+    private func observeExternalEvents() -> (ObservableSchedulerContext<State>) -> Observable<Event> {
+        return { _ in self.eventsStream.asObservable() }
+    }
+
+    private func obtainDiscount() -> (ObservableSchedulerContext<State>) -> Observable<Event> {
+        react(request: { Array($0.items.values) }, effects: { [unowned self] items in
+            self.discountService
+                .obtainDiscount(for: items)
+                .map { Event.didObtain(discount: $0) }
+                .asObservable()
+                .catchAndReturn(.didObtain(discount: 0.0))
+        })
     }
 }

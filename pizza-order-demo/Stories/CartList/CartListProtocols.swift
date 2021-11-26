@@ -12,7 +12,7 @@ protocol CartListModuleOutput: AnyObject {
 }
 
 protocol CartListViewInput: AnyObject {
-    func updatePrice(_ price: String)
+    func updatePrice(_ price: CartListModulePrice)
     func updatePurchaseButton(isActive: Bool)
     func updateDataSource(_ dataSource: [CartListTableViewCellModel])
 }
@@ -30,10 +30,16 @@ protocol CartListInteractorInput {
 }
 
 protocol CartListInteractorOutput: AnyObject {
-    func cartDidUpdate(_ items: [CartItem])
+    func cartItemsDidUpdate(_ items: [CartItem])
+    func cartPriceDidUpdate(_ price: CartListModulePrice)
     func purchaseDidFinish(result: Result<Void, PurchaseError>)
 }
 
 enum PurchaseError: Error {
     case unauthorized
+}
+
+enum CartListModulePrice {
+    case plain(Double)
+    case discount(newPrice: Double, oldPrice: Double)
 }

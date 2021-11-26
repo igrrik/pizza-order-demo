@@ -12,6 +12,7 @@ final class CartListViewController: UIViewController, CartListViewInput {
     @IBOutlet var purchaseContainer: UIView!
     @IBOutlet var purchaseButton: UIButton!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var priceBeforeDiscount: UILabel!
 
     var viewOutput: CartListViewOutput?
     private var dataSource = [CartListTableViewCellModel]()
@@ -29,8 +30,16 @@ final class CartListViewController: UIViewController, CartListViewInput {
         viewOutput?.didTapPurchaseButton()
     }
 
-    func updatePrice(_ price: String) {
-        priceLabel.text = price
+    func updatePrice(_ price: CartListModulePrice) {
+        switch price {
+        case let .plain(value):
+            priceLabel.text = value.priceString
+            priceBeforeDiscount.isHidden = true
+        case let .discount(newPrice, oldPrice):
+            priceLabel.text = newPrice.priceString
+            priceBeforeDiscount.attributedText = .makeDiscountString(from: oldPrice)
+            priceBeforeDiscount.isHidden = false
+        }
     }
 
     func updatePurchaseButton(isActive: Bool) {
@@ -76,3 +85,18 @@ extension CartListViewController: UITableViewDataSource {
 }
 
 extension CartListViewController: UITableViewDelegate {}
+
+private extension NSAttributedString {
+    static func makeDiscountString(from price: Double) -> NSAttributedString {
+        let strokeEffect: [NSAttributedString.Key : Any] = [
+            .strikethroughStyle: NSUnderlineStyle.single.rawValue,
+            .strikethroughColor: UIColor.red,
+            .font: UIFont.preferredFont(forTextStyle: .subheadline)
+        ]
+        return NSAttributedString(string: price.priceString, attributes: strokeEffect)
+    }
+}
+
+private extension Double {
+    var priceString: String { "\(self) $"}
+}

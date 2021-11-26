@@ -11,8 +11,8 @@ import RxCocoa
 
 final class ProductListViewModel {
     let dataSource: Driver<[ProductItemCollectionViewModel]>
-    let isLoadingIndicatorVisible: Driver<Bool> // TODO: bind
-    let error: Signal<Error> // TODO: bind
+    let isLoadingIndicatorVisible: Driver<Bool>
+    let error: Signal<Error>
 
     private let cartState: Driver<CartStore.State>
     private let errorRelay = PublishRelay<Error>()
