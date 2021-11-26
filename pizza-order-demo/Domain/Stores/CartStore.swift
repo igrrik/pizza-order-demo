@@ -17,6 +17,9 @@ final class CartStore {
         var discountPercent: Double = 0.0
         var itemsPrice: Double { items.values.map(\.price).reduce(0, +)  }
         var priceWithDiscount: Double { itemsPrice * ((100 - discountPercent) / 100) }
+
+        // Request
+        var shouldLoadDiscount: [CartItem]? { items.isEmpty ? nil : Array(items.values) }
     }
 
     enum Event {
@@ -81,12 +84,12 @@ final class CartStore {
     }
 
     private func obtainDiscount() -> (ObservableSchedulerContext<State>) -> Observable<Event> {
-        react(request: { Array($0.items.values) }, effects: { [unowned self] items in
+        react(request: { $0.shouldLoadDiscount }, effects: { [unowned self] items in
             self.discountService
                 .obtainDiscount(for: items)
                 .map { Event.didObtain(discount: $0) }
                 .asObservable()
-                .catchAndReturn(.didObtain(discount: 0.0))
+                .catch { _ in .empty() }
         })
     }
 }

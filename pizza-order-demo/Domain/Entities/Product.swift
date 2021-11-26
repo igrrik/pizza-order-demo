@@ -12,6 +12,10 @@ struct Product: Hashable {
     let price: Double
     let image: UIImage
     let category: Category
+
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        return lhs.name == rhs.name && lhs.price == rhs.price && lhs.category == rhs.category
+    }
 }
 
 extension Product {

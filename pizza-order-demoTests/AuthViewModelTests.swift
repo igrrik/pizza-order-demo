@@ -12,7 +12,7 @@ import RxCocoa
 @testable import pizza_order_demo
 
 final class AuthViewModelTests: XCTestCase {
-    private var authServiceMock: AuthServiceMock!
+    private var authServiceMock: MockAuthService!
     private var disposeBag: DisposeBag!
     private var testScheduler: TestScheduler!
 
@@ -174,14 +174,6 @@ final class AuthViewModelTests: XCTestCase {
 
     private func makeViewModel(initialState: AuthViewModel.State) -> AuthViewModel {
         return .init(initialState: initialState, authService: authServiceMock, scheduler: testScheduler)
-    }
-}
-
-private final class AuthServiceMock: AuthService {
-    var authUsernamePasswordResult: Single<AuthToken> = .error(RxError.unknown)
-
-    func auth(username: String, password: String) -> Single<AuthToken> {
-        return authUsernamePasswordResult
     }
 }
 

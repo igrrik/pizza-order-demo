@@ -46,19 +46,16 @@ final class ProductItemCollectionViewCell: UICollectionViewCell {
             .disposed(by: disposeBag)
 
         addToCartButton.rx.tap
-            .debug()
             .map { ProductItemCollectionViewModel.Event.increment }
             .bind(onNext: model.dispatch(event:))
             .disposed(by: disposeBag)
 
         incrementButton.rx.tap
-            .debug()
             .map { ProductItemCollectionViewModel.Event.increment }
             .bind(onNext: model.dispatch(event:))
             .disposed(by: disposeBag)
 
         decrementButton.rx.tap
-            .debug()
             .map { ProductItemCollectionViewModel.Event.decrement }
             .bind(onNext: model.dispatch(event:))
             .disposed(by: disposeBag)

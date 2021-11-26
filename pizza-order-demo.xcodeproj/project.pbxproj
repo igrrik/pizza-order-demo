@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9014CD21275125D30085E09F /* DiscountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014CD20275125D30085E09F /* DiscountService.swift */; };
 		9014CD23275126270085E09F /* LiveDiscountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014CD22275126270085E09F /* LiveDiscountService.swift */; };
+		9014CD25275134390085E09F /* MockDiscountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014CD24275134390085E09F /* MockDiscountService.swift */; };
+		9014CD27275134810085E09F /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014CD26275134810085E09F /* MockAuthService.swift */; };
 		9054A8D12741A912004818A3 /* ProductItemCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054A8D02741A912004818A3 /* ProductItemCollectionViewModel.swift */; };
 		9054A8D52741BB13004818A3 /* ProductProvidingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054A8D42741BB13004818A3 /* ProductProvidingService.swift */; };
 		9054A8D72741BB34004818A3 /* PizzaProvidingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9054A8D62741BB33004818A3 /* PizzaProvidingService.swift */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		9014CD20275125D30085E09F /* DiscountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountService.swift; sourceTree = "<group>"; };
 		9014CD22275126270085E09F /* LiveDiscountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDiscountService.swift; sourceTree = "<group>"; };
+		9014CD24275134390085E09F /* MockDiscountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscountService.swift; sourceTree = "<group>"; };
+		9014CD26275134810085E09F /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		9054A8D02741A912004818A3 /* ProductItemCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemCollectionViewModel.swift; sourceTree = "<group>"; };
 		9054A8D42741BB13004818A3 /* ProductProvidingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductProvidingService.swift; sourceTree = "<group>"; };
 		9054A8D62741BB33004818A3 /* PizzaProvidingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaProvidingService.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			children = (
 				9014CD20275125D30085E09F /* DiscountService.swift */,
 				9014CD22275126270085E09F /* LiveDiscountService.swift */,
+				9014CD24275134390085E09F /* MockDiscountService.swift */,
 			);
 			path = DiscountService;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			children = (
 				90E8E73F27275AA600F8E71C /* AuthService.swift */,
 				90E8E74127275ACC00F8E71C /* LiveAuthService.swift */,
+				9014CD26275134810085E09F /* MockAuthService.swift */,
 			);
 			path = AuthService;
 			sourceTree = "<group>";
@@ -496,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9014CD25275134390085E09F /* MockDiscountService.swift in Sources */,
 				9071EDBC274ABBC100EF884A /* CartListPresenter.swift in Sources */,
 				90EB043627432A18003E73DE /* Product.swift in Sources */,
 				90E8E73C272758BE00F8E71C /* AuthViewModel.swift in Sources */,
@@ -518,6 +525,7 @@
 				90E8E74027275AA600F8E71C /* AuthService.swift in Sources */,
 				9071EDB3274AB16700EF884A /* CartListViewController.swift in Sources */,
 				9071EDC0274AC28C00EF884A /* CartListInteractor.swift in Sources */,
+				9014CD27275134810085E09F /* MockAuthService.swift in Sources */,
 				90E8E7392727572200F8E71C /* AuthViewController.swift in Sources */,
 				90A5F526272CAD5B00D27738 /* ProductListViewModel.swift in Sources */,
 				90E8E702272754F400F8E71C /* SceneDelegate.swift in Sources */,
