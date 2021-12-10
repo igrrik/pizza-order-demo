@@ -35,20 +35,20 @@ final class AppFlowViewController: UITabBarController {
 
     private func makePizzaListModule() -> UIViewController {
         let vc = appModulesFactory.makePizzaListModule()
-        let image = UIImage(named: "tab_bar_cart")
+        let image = UIImage(named: "tab_bar_pizza")
         vc.tabBarItem = UITabBarItem(title: vc.title, image: image, selectedImage: image)
         return vc
 
     }
     private func makeDrinksListModule() -> UIViewController {
         let vc = appModulesFactory.makeDrinksListModule()
-        let image = UIImage(named: "tab_bar_pizza")
+        let image = UIImage(named: "tab_bar_bottle")
         vc.tabBarItem = UITabBarItem(title: vc.title, image: image, selectedImage: image)
         return vc
     }
     private func makeCartListModule() -> UIViewController {
         let vc = appModulesFactory.makeCartListModule(moduleOutput: self)
-        let image = UIImage(named: "tab_bar_bottle")
+        let image = UIImage(named: "tab_bar_cart")
         vc.tabBarItem = UITabBarItem(title: vc.title, image: image, selectedImage: image)
         return vc
     }
