@@ -74,6 +74,7 @@ extension AuthViewModel {
     private static func reduce(state: State, event: Event) -> State {
         var state = state
 
+        state.authToken = nil
         state.error = nil
 
         switch event {
@@ -118,11 +119,13 @@ extension AuthViewModel {
                     }
                 }
                 .withLatestFrom(state)
-                .flatMap { [unowned self] state in
-                    self.authService.auth(username: state.username, password: state.password)
+                .flatMap { [unowned self] state -> Observable<AuthViewModel.Event> in
+                    self.authService
+                        .auth(username: state.username, password: state.password)
+                        .asObservable()
+                        .map { Event.authResult(.success($0)) }
+                        .catch { .just(.authResult(.failure($0))) }
                 }
-                .map { Event.authResult(.success($0)) }
-                .catch { .just(.authResult(.failure($0))) }
         }
     }
 }
