@@ -9,9 +9,9 @@ Whether you want to build whole feature with Unidirectional Data Flow or integra
 * Unit tests on ViewModel and RxFeedback based Store
 
 ## Screenshots
-<img src="screenshots/pizza_list.png" alt="Pizza list" style="height: 667px; width:375px;"/>
-<img src="screenshots/cart.png" alt="Cart" style="height: 667px; width:375px;"/>
-<img src="screenshots/login.png" alt="Login" style="height: 667px; width:375px;"/>
+<img src="screenshots/pizza_list.png" alt="Pizza list" style="height: 338px; width:187px;"/>
+<img src="screenshots/cart.png" alt="Cart" style="height: 338px; width:187px;"/>
+<img src="screenshots/login.png" alt="Login" style="height: 338px; width:187px;"/>
 
 ## Requirements
 
