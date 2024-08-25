@@ -1,25 +1,24 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "RxFeedback",
-        "repositoryURL": "https://github.com/NoTests/RxFeedback.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "aa8384081a14af8fb389245fce2eba5776a96d0b",
-          "version": "4.0.0"
-        }
-      },
-      {
-        "package": "RxSwift",
-        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
-        "state": {
-          "branch": "main",
-          "revision": "b48f2e9536cd985d912126709b97bd743e58c8fc",
-          "version": null
-        }
+  "originHash" : "ce981caaca764c89cc2ae9cae6516dec7930062723eba93973280050cf1ab852",
+  "pins" : [
+    {
+      "identity" : "rxfeedback.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NoTests/RxFeedback.swift.git",
+      "state" : {
+        "revision" : "aa8384081a14af8fb389245fce2eba5776a96d0b",
+        "version" : "4.0.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift",
+      "state" : {
+        "revision" : "b06a8c8596e4c3e8e7788e08e720e3248563ce6a",
+        "version" : "6.7.1"
+      }
+    }
+  ],
+  "version" : 3
 }
