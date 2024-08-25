@@ -11,7 +11,6 @@ import RxCocoa
 import RxFeedback
 
 final class CartStore {
-
     struct State: Equatable {
         var items: [Product: CartItem] = [:]
         var discountPercent: Double = 0.0
